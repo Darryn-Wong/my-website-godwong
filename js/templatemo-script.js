@@ -169,13 +169,13 @@ $(document).ready(function () {
 
     /****************** Magnific Popup ******************/
 
-    // $('.tm-gallery').magnificPopup({
-    //     delegate: 'a',
-    //     type: 'image',
-    //     gallery: {
-    //         enabled: true
-    //     }
-    //   });
+    /*$('.tm-gallery').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        gallery: {
+            enabled: true
+        }
+      });*/
 
     /****************** Smooth Scrolling *****************/
 
