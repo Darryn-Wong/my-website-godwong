@@ -15,12 +15,9 @@
       <link rel="stylesheet" href="../slick/slick-theme.css">
       <link rel="stylesheet" href="../css/templatemo-upright.css">
       <link rel="stylesheet" href="../css/lightslider.css">
-      <script src="../js/jquery-3.4.1.min.js"></script>
-      <script src="../js/movie/carousel.js"></script>
-      <script src='../js/movie/movie.js'></script>
-      <script src="../js/bootstrap.min.js"></script>
-      <script src="../slick/slick.min.js"></script>
-      <script src="../js/lightslider.js"></script>
+      <link rel="stylesheet" href="../css/owl.carousel.min.css">
+      <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+      <link rel="stylesheet" href="../https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
    </head>
    <!-- <div class="center slider autoplay slickplay">
       <div class="eachsliderimage">
@@ -37,182 +34,275 @@
       </div>
       </div> -->
    <!--navigation-------------->
-   <nav>
-      <!--logo--------------->
-      <!-- <a href="index.html" class="logo">
-         <img src="img/logo.png"/>
-         </a> -->
-      <!--menu-------------->
-      <ul class="menu">
-         <li><a href="#">Home</a></li>
-         <li><a href="#">Movies</a></li>
-         <li><a href="#">TV Shows</a></li>
-         <li><a href="#">Hollywood</a></li>
-         <li><a href="#">Horror</a></li>
-      </ul>
-      <!--search------------->
-      <div class="search">
-         <input type="text" placeholder="Find Your Favorite Movies"/>
-         <!--search-icon----------->
-         <i class="fas fa-search"></i>
-      </div>
-   </nav>
-   <section id="main">
-      <!--showcase----------------------->
-      <!--heading------------->
-      <h1 class="showcase-heading">Showcase</h1>
-      <ul id="autoWidth" class="cs-hidden">
-         <!--box-1--------------------------->
-         <li class="item-a">
-            <!--showcase-box------------------->
-            <div class="showcase-box">
-               <img src="img/about-01.jpg"/>
+   <body id="background">
+      <nav>
+         <!--logo--------------->
+         <!-- <a href="index.html" class="logo">
+            <img src="img/logo.png"/>
+            </a> -->
+         <!--menu-------------->
+         <ul class="menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Movies</a></li>
+            <li><a href="#">TV Shows</a></li>
+            <li><a href="#">Hollywood</a></li>
+            <li><a href="#">Horror</a></li>
+         </ul>
+         <!--search------------->
+         <div class="search">
+            <input type="text" placeholder="Find Your Favorite Movies"/>
+            <!--search-icon----------->
+            <i class="fas fa-search"></i>
+         </div>
+      </nav>
+      <!-- <div type="button" data-target="#exampleModalCenter" data-id="insdsa">
+         Launch demo modal
+         </div> -->
+      <!-- Modal -->
+      <div class="loading hidden">Loading&#8230;</div>
+      <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">]
+            <div class="modal-content">
+               <img class="modal-bg2" src="http://image.tmdb.org/t/p/original/srYya1ZlI97Au4jUYAktDe3avyA.jpg" alt="">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <div class = "modal-body-left">
+                     <div id = "detail-overview"> Wonder Woman comes into conflict with the Soviet Union during the Cold War in the 1980s and finds a formidable foe by the name of the Cheetah.</div>
+                     <div id = "detail-genre">
+                        <button type = "button" class = "detail-genre-item btn btn-sm" disabled>Fantasy</button>
+                        <button type = "button" class = "detail-genre-item btn btn-sm" disabled>Action</button>
+                        <button type = "button" class = "detail-genre-item btn btn-sm" disabled>Adventure</button>
+                     </div>
+                  </div>
+                  <div class = "modal-body-right text-center">
+                     <img src="http://image.tmdb.org/t/p/original/srYya1ZlI97Au4jUYAktDe3avyA.jpg" id="detail-image">
+                  </div>
+               </div>
+               <div class="modal-footer">
+                  <a href="https://www.warnerbros.com/movies/wonder-woman-1984" class="btn btn-primary" id ="detail-home-button">Home Page</a>
+               </div>
             </div>
-         </li>
-         <!--box-2--------------------------->
-         <li class="item-b">
-            <!--showcase-box------------------->
-            <div class="showcase-box">
-               <img src="img/about-01.jpg"/>
+         </div>   
+      </div>
+      <section class="ftco-section">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12 text-center">
+                  <h2 class="heading-section mb-5 pb-md-4">On Air Now</h2>
+               </div>
+               <div class="col-md-12">
+                  <div class="featured-carousel owl-carousel">
+                     <div class="item">
+                        <div class="work">
+                           <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(images/work-1.jpg);">
+                              <a href="#" class="icon d-flex align-items-center justify-content-center">
+                              <span class="ion-ios-search"></span>
+                              </a>
+                           </div>
+                           <div class="text pt-3 w-100 text-center">
+                              <h3><a href="#">Work 01</a></h3>
+                              <span>Web Design</span>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="item">
+                        <div class="work">
+                           <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(images/work-2.jpg);">
+                              <a href="#" class="icon d-flex align-items-center justify-content-center">
+                              <span class="ion-ios-search"></span>
+                              </a>
+                           </div>
+                           <div class="text pt-3 w-100 text-center">
+                              <h3><a href="#">Work 02</a></h3>
+                              <span>Web Design</span>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="item">
+                        <div class="work">
+                           <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(images/work-3.jpg);">
+                              <a href="#" class="icon d-flex align-items-center justify-content-center">
+                              <span class="ion-ios-search"></span>
+                              </a>
+                           </div>
+                           <div class="text pt-3 w-100 text-center">
+                              <h3><a href="#">Work 03</a></h3>
+                              <span>Web Design</span>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="item">
+                        <div class="work">
+                           <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(images/work-4.jpg);">
+                              <a href="#" class="icon d-flex align-items-center justify-content-center">
+                              <span class="ion-ios-search"></span>
+                              </a>
+                           </div>
+                           <div class="text pt-3 w-100 text-center">
+                              <h3><a href="#">Work 04</a></h3>
+                              <span>Web Design</span>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="item">
+                        <div class="work">
+                           <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(images/work-5.jpg);">
+                              <a href="#" class="icon d-flex align-items-center justify-content-center">
+                              <span class="ion-ios-search"></span>
+                              </a>
+                           </div>
+                           <div class="text pt-3 w-100 text-center">
+                              <h3><a href="#">Work 05</a></h3>
+                              <span>Web Design</span>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="item">
+                        <div class="work">
+                           <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(images/work-6.jpg);">
+                              <a href="#" class="icon d-flex align-items-center justify-content-center">
+                              <span class="ion-ios-search"></span>
+                              </a>
+                           </div>
+                           <div class="text pt-3 w-100 text-center">
+                              <h3><a href="#">Work 06</a></h3>
+                              <span>Web Design</span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
             </div>
-         </li>
-         <!--box-3--------------------------->
-         <li class="item-c">
-            <!--showcase-box------------------->
-            <div class="showcase-box">
-               <img src="img/about-01.jpg"/>
+         </div>
+      </section>
+      
+      <!--latest-movies---------------------->
+      <section id="latest">
+         <h2 class="latest-heading">Latest Movies</h2>
+         <!--slider------------------->
+         <ul id="autoWidth2" class="cs-hidden latest-append-start">
+            <!-- <ul class="cs-hidden latest-append-start"> -->
+            <!-- to be added in js -->
+         </ul>
+      </section>
+      <!--movies---------------------------->
+      <div class="movies-heading">
+         <h2>Movies</h2>
+      </div>
+      <section id="movies-list">
+         <!--box-1------------------------>
+         <div class="movies-box">
+            <!--img------------>
+            <div class="movies-img">
+               <div class="quality">HDRip</div>
+               <img src="images/l-1.jpg">
             </div>
-         </li>
-         <!--box-4--------------------------->
-         <li class="item-d">
-            <!--showcase-box------------------->
-            <div class="showcase-box">
-               <img src="img/about-01.jpg"/>
+            <!--text--------->
+            <a href="#">
+            Tin (2018) Full Movie[In English] With English Subtitles | HDRip 1080p HD
+            </a>
+         </div>
+         <!--box-2------------------------>
+         <div class="movies-box">
+            <!--img------------>
+            <div class="movies-img">
+               <div class="quality">HDRip</div>
+               <img src="images/l-2.jpg">
             </div>
-         </li>
-         <!--box-5--------------------------->
-         <li class="item-e">
-            <!--showcase-box------------------->
-            <div class="showcase-box">
-               <img src="img/about-01.jpg"/>
+            <!--text--------->
+            <a href="#">
+            Tin (2018) Full Movie[In English] With English Subtitles | HDRip 1080p HD
+            </a>
+         </div>
+         <!--box-3------------------------>
+         <div class="movies-box">
+            <!--img------------>
+            <div class="movies-img">
+               <div class="quality">HDRip</div>
+               <img src="images/l-3.jpg">
             </div>
-         </li>
-      </ul>
-   </section>
-   <!--latest-movies---------------------->
-   <section id="latest">
-      <h2 class="latest-heading">Latest Movies</h2>
-      <!--slider------------------->
-      <ul id="autoWidth2" class="cs-hidden latest-append-start">
-      <!-- <ul class="cs-hidden latest-append-start"> -->
-          <!-- to be added in js -->
-      </ul>
-   </section>
-   <!--movies---------------------------->
-   <div class="movies-heading">
-      <h2>Movies</h2>
-   </div>
-   <section id="movies-list">
-      <!--box-1------------------------>
-      <div class="movies-box">
-         <!--img------------>
-         <div class="movies-img">
-            <div class="quality">HDRip</div>
-            <img src="images/l-1.jpg">
+            <!--text--------->
+            <a href="#">
+            Tin (2018) Full Movie[In English] With English Subtitles | HDRip 1080p HD
+            </a>
          </div>
-         <!--text--------->
-         <a href="#">
-         Tin (2018) Full Movie[In English] With English Subtitles | HDRip 1080p HD
-         </a>
-      </div>
-      <!--box-2------------------------>
-      <div class="movies-box">
-         <!--img------------>
-         <div class="movies-img">
-            <div class="quality">HDRip</div>
-            <img src="images/l-2.jpg">
+         <!--box-4------------------------>
+         <div class="movies-box">
+            <!--img------------>
+            <div class="movies-img">
+               <div class="quality">HDRip</div>
+               <img src="images/l-4.jpg">
+            </div>
+            <!--text--------->
+            <a href="#">
+            Tin (2018) Full Movie[In English] With English Subtitles | HDRip 1080p HD
+            </a>
          </div>
-         <!--text--------->
-         <a href="#">
-         Tin (2018) Full Movie[In English] With English Subtitles | HDRip 1080p HD
-         </a>
-      </div>
-      <!--box-3------------------------>
-      <div class="movies-box">
-         <!--img------------>
-         <div class="movies-img">
-            <div class="quality">HDRip</div>
-            <img src="images/l-3.jpg">
+         <!--box-5------------------------>
+         <div class="movies-box">
+            <!--img------------>
+            <div class="movies-img">
+               <div class="quality">HDRip</div>
+               <img src="images/l-5.jpg">
+            </div>
+            <!--text--------->
+            <a href="#">
+            Tin (2018) Full Movie[In English] With English Subtitles | HDRip 1080p HD
+            </a>
          </div>
-         <!--text--------->
-         <a href="#">
-         Tin (2018) Full Movie[In English] With English Subtitles | HDRip 1080p HD
-         </a>
-      </div>
-      <!--box-4------------------------>
-      <div class="movies-box">
-         <!--img------------>
-         <div class="movies-img">
-            <div class="quality">HDRip</div>
-            <img src="images/l-4.jpg">
+         <!--box-6------------------------>
+         <div class="movies-box">
+            <!--img------------>
+            <div class="movies-img">
+               <div class="quality">HDRip</div>
+               <img src="images/l-6.jpg">
+            </div>
+            <!--text--------->
+            <a href="#">
+            Tin (2018) Full Movie[In English] With English Subtitles | HDRip 1080p HD
+            </a>
          </div>
-         <!--text--------->
-         <a href="#">
-         Tin (2018) Full Movie[In English] With English Subtitles | HDRip 1080p HD
-         </a>
-      </div>
-      <!--box-5------------------------>
-      <div class="movies-box">
-         <!--img------------>
-         <div class="movies-img">
-            <div class="quality">HDRip</div>
-            <img src="images/l-5.jpg">
+         <!--box-7------------------------>
+         <div class="movies-box">
+            <!--img------------>
+            <div class="movies-img">
+               <div class="quality">HDRip</div>
+               <img src="images/l-7.jpg">
+            </div>
+            <!--text--------->
+            <a href="#">
+            Tin (2018) Full Movie[In English] With English Subtitles | HDRip 1080p HD
+            </a>
          </div>
-         <!--text--------->
-         <a href="#">
-         Tin (2018) Full Movie[In English] With English Subtitles | HDRip 1080p HD
-         </a>
-      </div>
-      <!--box-6------------------------>
-      <div class="movies-box">
-         <!--img------------>
-         <div class="movies-img">
-            <div class="quality">HDRip</div>
-            <img src="images/l-6.jpg">
+         <!--box-8------------------------>
+         <div class="movies-box">
+            <!--img------------>
+            <div class="movies-img">
+               <div class="quality">HDRip</div>
+               <img src="images/l-8.jpg">
+            </div>
+            <!--text--------->
+            <a href="#">
+            Tin (2018) Full Movie[In English] With English Subtitles | HDRip 1080p HD
+            </a>
          </div>
-         <!--text--------->
-         <a href="#">
-         Tin (2018) Full Movie[In English] With English Subtitles | HDRip 1080p HD
-         </a>
-      </div>
-      <!--box-7------------------------>
-      <div class="movies-box">
-         <!--img------------>
-         <div class="movies-img">
-            <div class="quality">HDRip</div>
-            <img src="images/l-7.jpg">
-         </div>
-         <!--text--------->
-         <a href="#">
-         Tin (2018) Full Movie[In English] With English Subtitles | HDRip 1080p HD
-         </a>
-      </div>
-      <!--box-8------------------------>
-      <div class="movies-box">
-         <!--img------------>
-         <div class="movies-img">
-            <div class="quality">HDRip</div>
-            <img src="images/l-8.jpg">
-         </div>
-         <!--text--------->
-         <a href="#">
-         Tin (2018) Full Movie[In English] With English Subtitles | HDRip 1080p HD
-         </a>
-      </div>
-   </section>
-   <!--footer------------------>
-   <footer>
-      <p>Going To Internet, Ltd Consumer Website</p>
-      <p>Copyright 2020 - GoingToInternet</p>
-   </footer>
+      </section>
+      <!--footer------------------>
+      <footer>
+         <p>Going To Internet, Ltd Consumer Website</p>
+         <p>Copyright 2020 - GoingToInternet</p>
+      </footer>
+      <script src="../js/jquery-3.4.1.min.js"></script>
+      <script src="../js/bootstrap.min.js"></script>
+      <script src="../slick/slick.min.js"></script>
+      <script src="../js/lightslider.js"></script>
+      <script src="../js/popper.js"></script>
+      <script src="../js/owl.carousel.min.js"></script>
+      <script src="../js/movie/carousel.js"></script>
+      <script src='../js/movie/movie.js'></script>
+   </body>
 </html>

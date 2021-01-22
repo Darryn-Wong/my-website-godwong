@@ -1,3 +1,4 @@
+
 initLatest();
 function initLatest() {
     var xhr = new XMLHttpRequest();
@@ -6,43 +7,137 @@ function initLatest() {
         if (xhr.readyState === 4)  {
             var data = JSON.parse(xhr.responseText).results;
             // Use the object however you wish
+            // <div class="overlay"> <div class="overlay-text">Hello World</div></div> <div data-toggle="modal" data-target="#exampleModalCenter" data-id="insdsa"> Launch demo modal </div>
             for (i = 0; i < data.length; i++) {
-                var str = '<li class="item"><div class="latest-box"><div class="latest-img"><img src="' + 'http://image.tmdb.org/t/p/w185' + data[i].poster_path + '"></div><div class="latest-b-text"><strong>' +  data[i].title+ '</strong><p>' + data[i].vote_average+'</p></div></div></li>';
+                var str = '<li class="item"><div class="latest-box zoom" data-toggle="modal" data-target="#exampleModalCenter" data-id="' + data[i].id +'"><div class="latest-img"><img src="' + 'http://image.tmdb.org/t/p/w185' + data[i].poster_path + '"></div><div class="latest-b-text"><strong>' +  data[i].title+ '</strong>' + 
+                '<div class="star-ratings"><div class="fill-ratings" style="width: ' + ((data[i].vote_average)*10).toString() + '%;"><span>★★★★★</span></div><div class="empty-ratings"><span>★★★★★</span></div></div>' + '<p>' + data[i].vote_average+'</p></div></div></li>';
                 document.querySelector(".latest-append-start").insertAdjacentHTML('beforeend', str);
             }
+            $(document).ready(function() {
+                $('#autoWidth').lightSlider({
+                    autoWidth:true,
+                    loop:true,
+                    onSliderLoad: function() {
+                        $('#autoWidth').removeClass('cs-hidden');
+                    }
+                });  
+              });
+              // star rating
+              $(document).ready(function() {
+                var star_rating_width = $('.fill-ratings span').width();
+                $('.star-ratings').width(star_rating_width);
+              });
+              $(document).ready(function() {
+                $('#autoWidth2').lightSlider({
+                    auto:true,
+                    item:8,
+                    loop:true,
+                    slideMove:2,
+                    autowidth:true,
+                    easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+                    speed:500,
+                    pauseOnHover: true,
+                    onSliderLoad: function() {
+                        $('#autoWidth2').removeClass('cs-hidden');
+                    },
+                    responsive : [
+                        {
+                            breakpoint:1650,
+                            settings: {
+                                item:7,
+                                slideMove:1,
+                              }
+                        },
+                        {
+                            breakpoint:1450,
+                            settings: {
+                                item:6,
+                                slideMove:1,
+                              }
+                        },
+                        {
+                            breakpoint:1200,
+                            settings: {
+                                item:5,
+                                slideMove:1,
+                              }
+                        },
+                        {
+                            breakpoint:1100,
+                            settings: {
+                                item:4,
+                                slideMove:1,
+                              }
+                        },
+                        {
+                            breakpoint:900,
+                            settings: {
+                                item:3,
+                                slideMove:1,
+                                slideMargin:6,
+                              }
+                        },
+                        {
+                            breakpoint:680,
+                            settings: {
+                                item:2,
+                                slideMove:1
+                              }
+                        }
+                    ]
+                });  
+            });
         }
     };
-    xhr.send();
+  xhr.send();
 }
-// function initgenre() {
-//     var xhr = new XMLHttpRequest();
-//     xhr.open('GET', 'https://api.themoviedb.org/3/genre/movie/list?api_key=d7299e799dd5c0263703b9a328503591&language=en-US', true);
-//     xhr.onreadystatechange = function() {
-//         if (xhr.readyState === 4)  {
-//             // Parse JSON response
-//             var data = JSON.parse(xhr.responseText).genres;
-//             var xhr1 = new XMLHttpRequest();
-//             xhr1.open('GET', 'https://api.themoviedb.org/3/trending/movie/week?api_key=d7299e799dd5c0263703b9a328503591', true);
-//             xhr1.onreadystatechange = function() {
-//                 if (xhr1.readyState === 4)  {
-//                     // Parse JSON response
-//                     var data1 = JSON.parse(xhr1.responseText).results;
-//                     // Use the object however you wish
-//                     for (i = 0; i < data.length; i++) {
-//                         console.log(data1[0].genre_ids[0]);
-//                         const find = (element) => element > data1[0].genre_ids[0];
-//                         console.log(data.findIndex(data1[0].genre_ids[0]));
-//                         var genreIndex = data.findIndex(data1[i].genre_ids[0]);
-//                         var str = '<li class="item-d"><div class="latest-box"><div class="latest-b-img"><img src="' + 'http://image.tmdb.org/t/p/w185' + data1[i].poster_path + '"></div><div class="latest-b-text"><strong>' +  data1[i].title+ '</strong><p>' + data[genreIndex] +' Movie</p></div></div></li>';
-//                         document.querySelector(".latest-append-start").insertAdjacentHTML('beforeend', str);
-//                     }
-//                 }
-//             };
-//             xhr1.send();
-//         }
-//     };
-//     xhr.send();
-// }
+// $('.latest-box').on('click', function () {
+//   addToCard();
+//   alert($(this).data('id'));
+// });
+$(document).on("click",".latest-box",function(){
+  document.getElementById("detail-image").src = '';
+  document.getElementById("detail-overview").innerHTML = '';
+  removeAllChildNodes(document.getElementById("detail-genre"));
+  document.getElementsByClassName("loading")[0].classList.remove("hidden");
+  document.getElementsByClassName("modal")[0].classList.add("hidden");
+  document.getElementsByClassName("modal-bg2")[0].src = '';
+  document.getElementById("detail-home-button").href ='';
+  initdetail($(this).data('id')); // "12314"
+  // $("#showtheaddedform").append($("#div1").html());
+  document.getElementsByClassName("modal")[0].classList.remove("hidden");
+  document.getElementsByClassName("loading")[0].classList.add("hidden");
+});
+function initdetail(id) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://api.themoviedb.org/3/genre/movie/list?api_key=d7299e799dd5c0263703b9a328503591&language=en-US', true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4)  {
+            // Parse JSON response
+            var genres = JSON.parse(xhr.responseText).genres;
+            var xhr1 = new XMLHttpRequest();
+            xhr1.open('GET', 'https://api.themoviedb.org/3/movie/'+id+'?api_key=d7299e799dd5c0263703b9a328503591&language=en-US', true);
+            xhr1.onreadystatechange = function() {
+                if (xhr1.readyState === 4)  {
+                    // Parse JSON response
+                    var data = JSON.parse(xhr1.responseText);
+                    // Use the object however you wish
+                    console.log(data.tagline);
+                    document.getElementById("detail-image").src = 'http://image.tmdb.org/t/p/original' + data.poster_path;
+                    document.getElementById("detail-overview").innerHTML = data.overview;
+                    data.genres.forEach(element => {
+                      var str = '<button type = "button" class = "detail-genre-item btn btn-sm" disabled>' +element.name+ '</button>';
+                      document.querySelector("#detail-genre").insertAdjacentHTML('beforeend', str);
+                    });
+                    document.getElementById("detail-home-button").href = data.homepage;
+                    document.getElementsByClassName("modal-bg2")[0].src = 'http://image.tmdb.org/t/p/original' + data.backdrop_path;
+                }
+            };
+            xhr1.send();
+        }
+    };
+  xhr.send();
+}
 function getData(callback,url) {
 
     var xhr = new XMLHttpRequest();  
@@ -71,12 +166,73 @@ function getData(callback,url) {
     xhr.open("GET", url, true);
     xhr.send();
 }
-$(document).ready(function() {
-    $('#autoWidth,#autoWidth2').lightSlider({
-        autoWidth:true,
-        loop:true,
-        onSliderLoad: function() {
-            $('#autoWidth,#autoWidth2').removeClass('cs-hidden');
-        } 
-    });  
-  });
+
+  (function($) {
+
+	"use strict";
+
+	var fullHeight = function() {
+
+		$('.js-fullheight').css('height', $(window).height());
+		$(window).resize(function(){
+			$('.js-fullheight').css('height', $(window).height());
+		});
+
+	};
+	fullHeight();
+
+	var carousel = function() {
+		$('.featured-carousel').owlCarousel({
+	    loop:true,
+	    autoplay: true,
+	    margin:30,
+	    animateOut: 'fadeOut',
+	    animateIn: 'fadeIn',
+	    nav:true,
+	    dots: true,
+	    autoplayHoverPause: false,
+	    items: 1,
+	    navText : ["<span class='ion-ios-arrow-back'></span>","<span class='ion-ios-arrow-forward'></span>"],
+	    responsive:{
+	      0:{
+	        items:1
+	      },
+	      600:{
+	        items:2
+	      },
+	      1000:{
+	        items:3
+	      }
+	    }
+		});
+
+	};
+	carousel();
+
+})(jQuery);
+//   $(document).ready(function() {
+
+
+//   });
+
+//   $("#myCarousel").carousel();
+//   // Enable Carousel Indicators
+// $(".item").click(function(){
+//   $("#myCarousel").carousel(1);
+// });
+
+// // Enable Carousel Controls
+// $(".left").click(function(){
+//   $("#myCarousel").carousel("prev");
+// });
+$('#exampleModalCenter').bind('hidden.bs.modal', function () {
+  $("html").css("margin-right", "0px");
+});
+$('#exampleModalCenter').bind('show.bs.modal', function () {
+  $("html").css("margin-right", "-15px");
+});
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
+  }
+}
