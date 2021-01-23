@@ -9,7 +9,7 @@ body{
 } */
 #background { 
   /* The image used */
-  background-image: url("http://image.tmdb.org/t/p/original/srYya1ZlI97Au4jUYAktDe3avyA.jpg");
+  background-image: url("https://lh3.googleusercontent.com/proxy/ldnNlzI5mLhHy-QmBi4MWWyceDAmI7V0o7a1fIJV3JE7uanznOMk6Des-2SZQgXOhBahmVq6NC4VC5bapuE74lCjS4TJeO8__RTd3RiRVecoVpp0GL96UDvucGMNkR83dyeHIKmMjwx8Q0yvvZVvZKVkA8AkOg");
   background-color: rgba(255,255,255,0.2);
   background-blend-mode: lighten;
   /* Full height */
@@ -234,8 +234,9 @@ nav .menu li a:hover{
   -webkit-line-clamp: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: #3a3a3a;
+  color: #1a1a1a;
   margin: 20px;
+  font-weight: bold;
 }
 .movies-box:hover{
   transform: translateY(-10px);
@@ -578,7 +579,7 @@ body.modal-open {
 
 .filter {
   margin-top: 5%;
-  margin-left: 5%;
+  margin-left: 10%;
   margin-bottom: 1%;;
   min-width: 5%;
 }

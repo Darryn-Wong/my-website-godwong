@@ -247,7 +247,7 @@ function getFilterSearch(id) {
           // <div class="overlay"> <div class="overlay-text">Hello World</div></div> <div data-toggle="modal" data-target="#exampleModalCenter" data-id="insdsa"> Launch demo modal </div>
           removeAllChildNodes(document.getElementById("movies-list"));
           for (i = 0; i < data.length; i++) {
-            var str = '<div class="movies-box" data-id="' + data[i].id + '"><div class="movies-img"> <div class="release-date">'+ data[i].release_date+'</div><img src=http://image.tmdb.org/t/p/original' + data[i].poster_path + '> </div><a href="#">' + data[i].title + '</a></div>';
+            var str = '<div class="movies-box" data-id="' + data[i].id + '"><div class="movies-img"> <div class="release-date">'+ data[i].release_date+'</div><img src=http://image.tmdb.org/t/p/w185' + data[i].poster_path + '> </div><a href="#">' + data[i].title + '</a></div>';
             document.querySelector("#movies-list").insertAdjacentHTML('beforeend', str);
           }
           // document.getElementById("dropdown-item").addEventListener("click", getFilterSearch);
@@ -259,8 +259,8 @@ function getFilterSearch(id) {
   };
   xhr.send();
 }
-$(window).scroll(function() {
-  if($(window).scrollTop() + $(window).height() >= $(document).height()){
-     console.log('at bot');
-  }
-});
+// $(window).scroll(function() {
+//   if($(window).scrollTop() + $(window).height() >= $(document).height()){
+//      console.log('at bot');
+//   }
+// });
