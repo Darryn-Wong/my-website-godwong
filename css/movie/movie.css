@@ -23,7 +23,6 @@ body{
   translate: no;
   background-attachment: fixed;
 }
-
 ul{
   list-style: none;
 }
@@ -135,10 +134,10 @@ nav .menu li a:hover{
   overflow: visible !important;
 }
 #latest{
+  margin-top: 10%;
   margin: 10px, 0px,10px,0px;
   border: 2px solid black;
-  /* https://coolbackgrounds.io/images/backgrounds/black/black-triangle-b9cb7263.jpg" */
-  background-image: url("https://coolbackgrounds.io/images/backgrounds/black/black-triangle-b9cb7263.jpg");
+  background-image: url("../../img/silver-black-bg.jpg");
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -214,6 +213,7 @@ nav .menu li a:hover{
   border-radius: 5px;
   overflow: hidden;
   border-top: 3px solid #292929;
+  min-height: 490px
 }
 .movies-img{
   width:100%;
@@ -247,7 +247,7 @@ nav .menu li a:hover{
   align-items: center;
   flex-wrap: wrap;
 }
-.quality{
+.release-date{
   position: absolute;
   top: 0px;
   left: 50%;
@@ -571,10 +571,20 @@ body.modal-open {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-
 .hidden {
   visibility: hidden !important;
   overflow: hidden !important;
+}
+
+.filter {
+  margin-top: 5%;
+  margin-left: 5%;
+  margin-bottom: 1%;;
+  min-width: 5%;
+}
+.dropdown-menu {
+  max-height: 200px;
+  overflow-y: auto;
 }
 /* Absolute Center Spinner */
 .loading {

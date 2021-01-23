@@ -1,5 +1,6 @@
 
 initLatest();
+initFilterDropDown();
 function initLatest() {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'https://api.themoviedb.org/3/trending/movie/week?api_key=d7299e799dd5c0263703b9a328503591', true);
@@ -162,54 +163,26 @@ function getData(callback,url) {
         callback(jsonData);
       }
     };
-  
     xhr.open("GET", url, true);
     xhr.send();
 }
 
-  (function($) {
+//   (function($) {
 
-	"use strict";
+// 	"use strict";
 
-	var fullHeight = function() {
+// 	var fullHeight = function() {
 
-		$('.js-fullheight').css('height', $(window).height());
-		$(window).resize(function(){
-			$('.js-fullheight').css('height', $(window).height());
-		});
+// 		$('.js-fullheight').css('height', $(window).height());
+// 		$(window).resize(function(){
+// 			$('.js-fullheight').css('height', $(window).height());
+// 		});
 
-	};
-	fullHeight();
+// 	};
+// 	fullHeight();
+// 	carousel();
 
-	var carousel = function() {
-		$('.featured-carousel').owlCarousel({
-	    loop:true,
-	    autoplay: true,
-	    margin:30,
-	    animateOut: 'fadeOut',
-	    animateIn: 'fadeIn',
-	    nav:true,
-	    dots: true,
-	    autoplayHoverPause: false,
-	    items: 1,
-	    navText : ["<span class='ion-ios-arrow-back'></span>","<span class='ion-ios-arrow-forward'></span>"],
-	    responsive:{
-	      0:{
-	        items:1
-	      },
-	      600:{
-	        items:2
-	      },
-	      1000:{
-	        items:3
-	      }
-	    }
-		});
-
-	};
-	carousel();
-
-})(jQuery);
+// })(jQuery);
 //   $(document).ready(function() {
 
 
@@ -225,6 +198,8 @@ function getData(callback,url) {
 // $(".left").click(function(){
 //   $("#myCarousel").carousel("prev");
 // });
+
+// modal
 $('#exampleModalCenter').bind('hidden.bs.modal', function () {
   $("html").css("margin-right", "0px");
 });
@@ -236,3 +211,55 @@ function removeAllChildNodes(parent) {
       parent.removeChild(parent.firstChild);
   }
 }
+
+function initFilterDropDown() {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://api.themoviedb.org/3/genre/movie/list?api_key=d7299e799dd5c0263703b9a328503591&language=en-US', true);
+  xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4) {
+          var data = JSON.parse(xhr.responseText).genres;
+          // Use the object however you wish
+          // <div class="overlay"> <div class="overlay-text">Hello World</div></div> <div data-toggle="modal" data-target="#exampleModalCenter" data-id="insdsa"> Launch demo modal </div>
+          for (i = 0; i < data.length; i++) {
+            var str = '<a class="dropdown-item" data-dropup-auto="false" href="javascript:void(0);" data-genre-id="' + data[i].id + '">' + data[i].name + '</a>';
+            document.querySelector(".filter-dropdown").insertAdjacentHTML('beforeend', str);
+          }
+          // document.getElementById("dropdown-item").addEventListener("click", initFilterSearch($(this).data('genre-id')));
+          $('.dropdown-menu a').click(function(){
+            console.log($(this).text());
+            $('#selected').text($(this).text());
+            initFilterSearch($(this).data('genre-id'));
+          });
+          $('.dropdown-menu').innerHTML = $('.dropdown-menu a')[0].innerHTML;
+      }
+  };
+  xhr.send();
+}
+
+function initFilterSearch(id) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://api.themoviedb.org/3/discover/movie?api_key=d7299e799dd5c0263703b9a328503591&with_genres=' + id, true);
+  xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4) {
+          var data = JSON.parse(xhr.responseText).results;
+          // Use the object however you wish
+          // <div class="overlay"> <div class="overlay-text">Hello World</div></div> <div data-toggle="modal" data-target="#exampleModalCenter" data-id="insdsa"> Launch demo modal </div>
+          removeAllChildNodes(document.getElementById("movies-list"));
+          for (i = 0; i < data.length; i++) {
+            var str = '<div class="movies-box" data-id="' + data[i].id + '"><div class="movies-img"> <div class="release-date">'+ data[i].release_date+'</div><img src=http://image.tmdb.org/t/p/w185' + data[i].poster_path + '> </div><a href="#">' + data[i].title + '</a></div>';
+            document.querySelector("#movies-list").insertAdjacentHTML('beforeend', str);
+          }
+          // document.getElementById("dropdown-item").addEventListener("click", initFilterSearch);
+          // $('.dropdown-menu a').click(function(){
+          //   console.log($(this).text());
+          //   $('#selected').text($(this).text());
+          // });
+      }
+  };
+  xhr.send();
+}
+$(window).scroll(function() {
+  if($(window).scrollTop() + $(window).height() >= $(document).height()){
+     console.log('at bot');
+  }
+});
