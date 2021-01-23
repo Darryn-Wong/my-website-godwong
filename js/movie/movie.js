@@ -220,23 +220,24 @@ function initFilterDropDown() {
           var data = JSON.parse(xhr.responseText).genres;
           // Use the object however you wish
           // <div class="overlay"> <div class="overlay-text">Hello World</div></div> <div data-toggle="modal" data-target="#exampleModalCenter" data-id="insdsa"> Launch demo modal </div>
+          document.getElementById("selected").innerHTML = data[0].name;
+          getFilterSearch(data[0].id);
           for (i = 0; i < data.length; i++) {
             var str = '<a class="dropdown-item" data-dropup-auto="false" href="javascript:void(0);" data-genre-id="' + data[i].id + '">' + data[i].name + '</a>';
             document.querySelector(".filter-dropdown").insertAdjacentHTML('beforeend', str);
           }
-          // document.getElementById("dropdown-item").addEventListener("click", initFilterSearch($(this).data('genre-id')));
+          // document.getElementById("dropdown-item").addEventListener("click", getFilterSearch($(this).data('genre-id')));
           $('.dropdown-menu a').click(function(){
             console.log($(this).text());
             $('#selected').text($(this).text());
-            initFilterSearch($(this).data('genre-id'));
+            getFilterSearch($(this).data('genre-id'));
           });
-          $('.dropdown-menu').innerHTML = $('.dropdown-menu a')[0].innerHTML;
       }
   };
   xhr.send();
 }
 
-function initFilterSearch(id) {
+function getFilterSearch(id) {
   var xhr = new XMLHttpRequest();
   xhr.open('GET', 'https://api.themoviedb.org/3/discover/movie?api_key=d7299e799dd5c0263703b9a328503591&with_genres=' + id, true);
   xhr.onreadystatechange = function() {
@@ -249,7 +250,7 @@ function initFilterSearch(id) {
             var str = '<div class="movies-box" data-id="' + data[i].id + '"><div class="movies-img"> <div class="release-date">'+ data[i].release_date+'</div><img src=http://image.tmdb.org/t/p/w185' + data[i].poster_path + '> </div><a href="#">' + data[i].title + '</a></div>';
             document.querySelector("#movies-list").insertAdjacentHTML('beforeend', str);
           }
-          // document.getElementById("dropdown-item").addEventListener("click", initFilterSearch);
+          // document.getElementById("dropdown-item").addEventListener("click", getFilterSearch);
           // $('.dropdown-menu a').click(function(){
           //   console.log($(this).text());
           //   $('#selected').text($(this).text());
