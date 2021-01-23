@@ -7,8 +7,6 @@ function initLatest() {
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4)  {
             var data = JSON.parse(xhr.responseText).results;
-            // Use the object however you wish
-            // <div class="overlay"> <div class="overlay-text">Hello World</div></div> <div data-toggle="modal" data-target="#exampleModalCenter" data-id="insdsa"> Launch demo modal </div>
             for (i = 0; i < data.length; i++) {
                 var str = '<li class="item"><div class="latest-box zoom" data-toggle="modal" data-target="#exampleModalCenter" data-id="' + data[i].id +'"><div class="latest-img"><img src="' + 'http://image.tmdb.org/t/p/w185' + data[i].poster_path + '"></div><div class="latest-b-text"><strong>' +  data[i].title+ '</strong>' + 
                 '<div class="star-ratings"><div class="fill-ratings" style="width: ' + ((data[i].vote_average)*10).toString() + '%;"><span>★★★★★</span></div><div class="empty-ratings"><span>★★★★★</span></div></div>' + '<p>' + data[i].vote_average+'</p></div></div></li>';
@@ -96,7 +94,21 @@ function initLatest() {
 //   addToCard();
 //   alert($(this).data('id'));
 // });
-$(document).on("click",".latest-box",function(){
+$(document).on("click",".latest-box", function(){
+  document.getElementById("detail-image").src = '';
+  document.getElementById("detail-overview").innerHTML = '';
+  removeAllChildNodes(document.getElementById("detail-genre"));
+  document.getElementsByClassName("loading")[0].classList.remove("hidden");
+  document.getElementsByClassName("modal")[0].classList.add("hidden");
+  document.getElementsByClassName("modal-bg2")[0].src = '';
+  document.getElementById("detail-home-button").href ='';
+  initdetail($(this).data('id')); // "12314"
+  // $("#showtheaddedform").append($("#div1").html());
+  document.getElementsByClassName("modal")[0].classList.remove("hidden");
+  document.getElementsByClassName("loading")[0].classList.add("hidden");
+});
+
+$(document).on("click", ".movies-box",function(){
   document.getElementById("detail-image").src = '';
   document.getElementById("detail-overview").innerHTML = '';
   removeAllChildNodes(document.getElementById("detail-genre"));
@@ -247,7 +259,7 @@ function getFilterSearch(id) {
           // <div class="overlay"> <div class="overlay-text">Hello World</div></div> <div data-toggle="modal" data-target="#exampleModalCenter" data-id="insdsa"> Launch demo modal </div>
           removeAllChildNodes(document.getElementById("movies-list"));
           for (i = 0; i < data.length; i++) {
-            var str = '<div class="movies-box" data-id="' + data[i].id + '"><div class="movies-img"> <div class="release-date">'+ data[i].release_date+'</div><img src=http://image.tmdb.org/t/p/w185' + data[i].poster_path + '> </div><a href="#">' + data[i].title + '</a></div>';
+            var str = '<div class="movies-box " data-toggle="modal" data-target="#exampleModalCenter" data-id="' + data[i].id + '"><div class="movies-img"> <div class="release-date">'+ data[i].release_date+'</div><img src=http://image.tmdb.org/t/p/w185' + data[i].poster_path + '> </div><a href="javascript:void(0);">' + data[i].title + '</a></div>';
             document.querySelector("#movies-list").insertAdjacentHTML('beforeend', str);
           }
           // document.getElementById("dropdown-item").addEventListener("click", getFilterSearch);

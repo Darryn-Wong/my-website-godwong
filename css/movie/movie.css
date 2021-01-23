@@ -26,9 +26,6 @@ body{
 ul{
   list-style: none;
 }
-a{
-  text-decoration: none;
-}
 nav{
   display: flex;
   justify-content: space-around;
@@ -160,6 +157,7 @@ nav .menu li a:hover{
   width: 180px;
   height: 380px;
   background-color: rgba(0,0,0,0.9);;
+  cursor: pointer;
 }
 .latest-b-img{
   width:100%;
@@ -208,12 +206,12 @@ nav .menu li a:hover{
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  box-shadow: 2px 2px 30px rgba(0,0,0,0.2);
+  box-shadow: 2px 2px 30px rgba(0,0,0,0.8);
   margin: 20px;
-  border-radius: 5px;
+  border-radius: 8px;
   overflow: hidden;
-  border-top: 3px solid #292929;
-  min-height: 490px
+  min-height: 490px;
+  cursor: pointer;
 }
 .movies-img{
   width:100%;
@@ -235,8 +233,13 @@ nav .menu li a:hover{
   overflow: hidden;
   text-overflow: ellipsis;
   color: #1a1a1a;
+  text-decoration: underline;
   margin: 20px;
   font-weight: bold;
+}
+.movies-box a{
+  color: #1a1a1a !important;
+  text-decoration: underline !important;
 }
 .movies-box:hover{
   transform: translateY(-10px);
@@ -249,6 +252,9 @@ nav .menu li a:hover{
   flex-wrap: wrap;
 }
 .release-date{
+  text-align: center;
+  max-width: 130px;
+  min-width: 130px;
   position: absolute;
   top: 0px;
   left: 50%;
