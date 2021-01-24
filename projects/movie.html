@@ -49,16 +49,23 @@
          <ul class="menu">
             <li><a href="https://www.netflix.com/">Nextflix</a></li>
             <li><a href="https://www.amc.com/">AMC</a></li>
-            <li><a href="#">TV Shows</a></li>
-            <li><a href="#">Fantasy</a></li>
-            <li><a href="#">Horror</a></li>
+            <li><a href="https://www.regmovies.com/">Regal</a></li>
+            <li><a href="#filter">FILTER</a></li>
          </ul>
          <!--search------------->
-         <div class="search">
+         <!-- <div class="search">
             <input type="text" placeholder="Find Your Favorite Movies"/>
-            <!--search-icon----------->
             <i class="fas fa-search"></i>
-         </div>
+         </div> -->
+         <select class="mdb-select" searchable="Search here..">
+            <option value="" disabled selected>Search a movie title</option>
+            <option value="1">USA</option>
+            <option value="2">Germany</option>
+            <option value="3">France</option>
+            <option value="3">Poland</option>
+            <option value="3">Japan</option>
+          </select>
+          
       </nav>
       <!-- <div type="button" data-target="#exampleModalCenter" data-id="insdsa">
          Launch demo modal
@@ -103,7 +110,7 @@
          </ul>
       </section>
       <!--movies---------------------------->
-      <div class="btn-group filter">
+      <div class="btn-group" id = "filter">
          <button type="button" class="btn-lg btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span id="selected">Chose option</span><span class="caret"></span></a>
          </button>

@@ -1,6 +1,9 @@
-
+$(document).ready(function() {
+  $('.mdb-select').materialSelect();
+});
 initLatest();
 initFilterDropDown();
+
 function initLatest() {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'https://api.themoviedb.org/3/trending/movie/week?api_key=d7299e799dd5c0263703b9a328503591', true);
@@ -271,8 +274,16 @@ function getFilterSearch(id) {
   };
   xhr.send();
 }
-// $(window).scroll(function() {
-//   if($(window).scrollTop() + $(window).height() >= $(document).height()){
-//      console.log('at bot');
-//   }
-// });
+// offset anchor by -100 Y
+function offsetAnchor() {
+  if (location.hash.length !== 0) {
+    window.scrollTo(window.scrollX, window.scrollY - 100);
+  }
+}
+$(document).on('click', 'a[href^="#"]', function(event) {
+  window.setTimeout(function() {
+    offsetAnchor();
+  }, 0);
+});
+
+window.setTimeout(offsetAnchor, 0);

@@ -9,7 +9,10 @@ body{
 } */
 #background { 
   /* The image used */
-  background-image: url("https://lh3.googleusercontent.com/proxy/ldnNlzI5mLhHy-QmBi4MWWyceDAmI7V0o7a1fIJV3JE7uanznOMk6Des-2SZQgXOhBahmVq6NC4VC5bapuE74lCjS4TJeO8__RTd3RiRVecoVpp0GL96UDvucGMNkR83dyeHIKmMjwx8Q0yvvZVvZKVkA8AkOg");
+  /*https://i.pinimg.com/originals/c0/d3/c0/c0d3c04f52dbebb886cbf8e34b229df4.jpg*/
+  /*https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0wHY7_Jpl0a5WPETVQ7oV4S9J4Ms1iWLv_Q&usqp=CAU*/ 
+  background-image: url("https://bpi-group.us/wp-content/uploads/2020/04/Abstract-Background-Light-Blue-Tech-shutterstock_275897564-Converted.png");
+  
   background-color: rgba(255,255,255,0.2);
   background-blend-mode: lighten;
   /* Full height */
@@ -583,7 +586,7 @@ body.modal-open {
   overflow: hidden !important;
 }
 
-.filter {
+#filter {
   margin-top: 5%;
   margin-left: 10%;
   margin-bottom: 1%;;
