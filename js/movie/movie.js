@@ -98,33 +98,22 @@ function initLatest() {
 //   alert($(this).data('id'));
 // });
 $(document).on("click",".latest-box", function(){
-  document.getElementById("detail-image").src = '';
-  document.getElementById("detail-overview").innerHTML = '';
-  removeAllChildNodes(document.getElementById("detail-genre"));
-  document.getElementsByClassName("loading")[0].classList.remove("hidden");
-  document.getElementsByClassName("modal")[0].classList.add("hidden");
-  document.getElementsByClassName("modal-bg2")[0].src = '';
-  document.getElementById("detail-home-button").href ='';
   initdetail($(this).data('id')); // "12314"
-  // $("#showtheaddedform").append($("#div1").html());
-  document.getElementsByClassName("modal")[0].classList.remove("hidden");
-  document.getElementsByClassName("loading")[0].classList.add("hidden");
 });
-
 $(document).on("click", ".movies-box",function(){
-  document.getElementById("detail-image").src = '';
-  document.getElementById("detail-overview").innerHTML = '';
-  removeAllChildNodes(document.getElementById("detail-genre"));
-  document.getElementsByClassName("loading")[0].classList.remove("hidden");
-  document.getElementsByClassName("modal")[0].classList.add("hidden");
-  document.getElementsByClassName("modal-bg2")[0].src = '';
-  document.getElementById("detail-home-button").href ='';
   initdetail($(this).data('id')); // "12314"
-  // $("#showtheaddedform").append($("#div1").html());
-  document.getElementsByClassName("modal")[0].classList.remove("hidden");
-  document.getElementsByClassName("loading")[0].classList.add("hidden");
+});
+$(document).on("click", ".autocom-box li",function(){
+  initdetail($(this).data('id'));
 });
 function initdetail(id) {
+    document.getElementById("detail-image").src = '';
+    document.getElementById("detail-overview").innerHTML = '';
+    removeAllChildNodes(document.getElementById("detail-genre"));
+    document.getElementsByClassName("loading")[0].classList.remove("hidden");
+    document.getElementsByClassName("modal")[0].classList.add("hidden");
+    document.getElementsByClassName("modal-bg2")[0].src = '';
+    document.getElementById("detail-home-button").href ='';
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'https://api.themoviedb.org/3/genre/movie/list?api_key=d7299e799dd5c0263703b9a328503591&language=en-US', true);
     xhr.onreadystatechange = function() {
@@ -147,6 +136,8 @@ function initdetail(id) {
                     });
                     document.getElementById("detail-home-button").href = data.homepage;
                     document.getElementsByClassName("modal-bg2")[0].src = 'http://image.tmdb.org/t/p/original' + data.backdrop_path;
+                    document.getElementsByClassName("modal")[0].classList.remove("hidden");
+                    document.getElementsByClassName("loading")[0].classList.add("hidden");
                 }
             };
             xhr1.send();
@@ -287,3 +278,138 @@ $(document).on('click', 'a[href^="#"]', function(event) {
 });
 
 window.setTimeout(offsetAnchor, 0);
+
+
+let suggestions = [
+  "Channel",
+  "CodingLab",
+  "CodingNepal",
+  "YouTube",
+  "YouTuber",
+  "YouTube Channel",
+  "Blogger",
+  "Bollywood",
+  "Vlogger",
+  "Vechiles",
+  "Facebook",
+  "Freelancer",
+  "Facebook Page",
+  "Designer",
+  "Developer",
+  "Web Designer",
+  "Web Developer",
+  "Login Form in HTML & CSS",
+  "How to learn HTML & CSS",
+  "How to learn JavaScript",
+  "How to became Freelancer",
+  "How to became Web Designer",
+  "How to start Gaming Channel",
+  "How to start YouTube Channel",
+  "What does HTML stands for?",
+  "What does CSS stands for?",
+];
+// getting all required elements
+const searchWrapper = document.querySelector(".search-input");
+const inputBox = searchWrapper.querySelector("input");
+const suggBox = searchWrapper.querySelector(".autocom-box");
+const icon = searchWrapper.querySelector(".icon");
+let linkTag = searchWrapper.querySelector("a");
+let webLink;
+
+// if user press any key and release
+inputBox.onkeyup = (e)=>{
+    let userData = e.target.value; //user enetered data
+    let emptyArray = [];
+    suggestions = [];
+    if(userData){
+        icon.onclick = ()=>{
+            webLink = "https://www.google.com/search?q=" + userData;
+            linkTag.setAttribute("href", webLink);
+            console.log(webLink);
+            linkTag.click();
+        }
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://api.themoviedb.org/3/search/movie?api_key=d7299e799dd5c0263703b9a328503591&language=en-US&query=' + userData + '&page=1&include_adult=false', true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4) {
+                var data = JSON.parse(xhr.responseText).results;
+                // Use the object however you wish
+                // <div class="overlay"> <div class="overlay-text">Hello World</div></div> <div data-toggle="modal" data-target="#exampleModalCenter" data-id="insdsa"> Launch demo modal </div>
+                removeAllChildNodes(suggBox);
+                if(userData.length >= 3) {
+                  for(var i = 0; i < data.length; i++) {
+                    // suggestions.push(data[i].title);
+                    if(data[i].poster_path == null) {
+                      var str = '<li data-id="' + data[i].id + '" data-toggle="modal" data-target="#exampleModalCenter">'+ data[i].title +'</li>';
+                      suggBox.insertAdjacentHTML('beforeend', str);
+                    } else {
+                      var str = '<li data-id="' + data[i].id + '" data-toggle="modal" data-target="#exampleModalCenter">'+ data[i].title + '<img src="http://image.tmdb.org/t/p/w185' + data[i].poster_path + '">'  +'</li>';
+                      suggBox.insertAdjacentHTML('beforeend', str);
+                    }
+                  }
+                } else {
+                  for(var i = 0; i < data.length; i++) {
+                    // suggestions.push(data[i].title);
+                    if(!data[i].title.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase())) {
+                      continue;
+                    }
+                    if(data[i].poster_path == null) {
+                      var str = '<li data-id="' + data[i].id + '" data-toggle="modal" data-target="#exampleModalCenter">'+ data[i].title +'</li>';
+                      suggBox.insertAdjacentHTML('beforeend', str);
+                    } else {
+                      var str = '<li data-id="' + data[i].id + '" data-toggle="modal" data-target="#exampleModalCenter">'+ data[i].title + '<img src="http://image.tmdb.org/t/p/w185' + data[i].poster_path + '">'  +'</li>';
+                      suggBox.insertAdjacentHTML('beforeend', str);
+                    }
+                  }
+                }
+                // for(var i = 0; i < data.length; i++) {
+                //   suggestions.push(data[i].title);
+                // }
+                // emptyArray = suggestions.filter((data)=>{
+                //   //filtering array value and user characters to lowercase and return only those words which are start with user enetered chars
+                //   return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase()); 
+                //   // return data; 
+                // });
+                // emptyArray = emptyArray.map((data)=>{
+                //     // passing return data inside li tag
+                //     return data = '<li>'+ data +'</li>';
+                // });
+                searchWrapper.classList.add("active"); //show autocomplete box
+                // showSuggestions(emptyArray);
+                let allList = suggBox.querySelectorAll("li");
+                // for (let i = 0; i < allList.length; i++) {
+                //     //adding onclick attribute in all li tag
+                //     allList[i].setAttribute("onclick", "select(this)");
+                //     // allList[i].setAttribute("onclick", function(){
+                //     //   this.setAttribute("onclick", "select(this)");
+                //     // });
+                // }
+            }
+        };
+        xhr.send();
+    } else {
+        searchWrapper.classList.remove("active"); //hide autocomplete box
+    }
+}
+
+function select(element){
+    let selectData = element.textContent;
+    inputBox.value = selectData;
+    icon.onclick = ()=>{
+        webLink = "https://www.google.com/search?q=" + selectData;
+        linkTag.setAttribute("href", webLink);
+        linkTag.click();
+    }
+    searchWrapper.classList.remove("active");
+}
+
+function showSuggestions(list){
+    let listData;
+    if(!list.length){
+        userValue = inputBox.value;
+        listData = '<li>'+ userValue +'</li>';
+    }else{
+        listData = list.join('');
+    }
+    suggBox.innerHTML = listData;
+}

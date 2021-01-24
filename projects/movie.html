@@ -51,6 +51,7 @@
             <li><a href="https://www.amc.com/">AMC</a></li>
             <li><a href="https://www.regmovies.com/">Regal</a></li>
             <li><a href="#filter">FILTER</a></li>
+            <li><a href="#filter">SEARCH</a></li>
          </ul>
          <!--search------------->
          <!-- <div class="search">
@@ -62,6 +63,39 @@
          Launch demo modal
          </div> -->
       <!-- Modal -->
+      <!-- <div class="container">
+         <h2>Filterable List</h2>
+         <p>Type something in the input field to search the list for specific items:</p>  
+         <input class="form-control" id="myInput" type="text" placeholder="Search..">
+         <br>
+         <ul class="list-group" id="myList">
+           <li class="list-group-item">First item</li>
+           <li class="list-group-item">Second item</li>
+           <li class="list-group-item">Third item</li>
+           <li class="list-group-item">Fourth</li>
+         </ul>  
+       </div>
+       
+       <script>
+       $(document).ready(function(){
+         $("#myInput").on("keyup", function() {
+           var value = $(this).val().toLowerCase();
+           $("#myList li").filter(function() {
+             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+           });
+         });
+       });
+       </script> -->
+       <div class="search-wrapper">
+         <div class="search-input">
+           <a href="" target="_blank" hidden></a>
+           <input type="text" placeholder="Type to search..">
+           <div class="autocom-box">
+             <!-- here list are inserted from javascript -->
+           </div>
+           <div class="icon"><i class="fas fa-search"></i></div>
+         </div>
+       </div>
       <div class="loading hidden">Loading&#8230;</div>
       <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">]
