@@ -1,6 +1,6 @@
-$(document).ready(function() {
-  $('.mdb-select').materialSelect();
-});
+// $(document).ready(function() {
+//   $('.mdb-select').materialSelect();
+// });
 initLatest();
 initFilterDropDown();
 

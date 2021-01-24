@@ -209,6 +209,7 @@ nav .menu li a:hover{
   align-items: center;
   flex-direction: column;
   box-shadow: 2px 2px 30px rgba(0,0,0,0.8);
+  background-color: rgba(0,0,0,0.77) !important;
   margin: 20px;
   border-radius: 8px;
   overflow: hidden;
@@ -234,13 +235,10 @@ nav .menu li a:hover{
   -webkit-line-clamp: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: #1a1a1a;
+  color: #fff;
   text-decoration: underline;
   margin: 20px;
   font-weight: bold;
-}
-.movies-box a{
-  color: #1a1a1a !important;
   text-decoration: underline !important;
 }
 .movies-box:hover{
@@ -294,7 +292,6 @@ footer{
   justify-content: space-around;
   align-items: center;
   border-top: 1px solid rgba(0,0,0,0.1);
-
 }
 footer p{
   color:#5e5e5e;
