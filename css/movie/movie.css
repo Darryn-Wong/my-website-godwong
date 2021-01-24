@@ -11,7 +11,7 @@ body{
   /* The image used */
   /*https://i.pinimg.com/originals/c0/d3/c0/c0d3c04f52dbebb886cbf8e34b229df4.jpg*/
   /*https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0wHY7_Jpl0a5WPETVQ7oV4S9J4Ms1iWLv_Q&usqp=CAU*/ 
-  background-image: url("https://biddown.com/wp-content/uploads/2020/02/Light-blue-tech-background-vector-05-1.png");
+  background-image: url("../../img/bg.png");
   
   background-color: rgba(255,255,255,0.2);
   background-blend-mode: lighten;
