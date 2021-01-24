@@ -93,15 +93,11 @@ function initLatest() {
     };
   xhr.send();
 }
-// $('.latest-box').on('click', function () {
-//   addToCard();
-//   alert($(this).data('id'));
-// });
 $(document).on("click",".latest-box", function(){
-  initdetail($(this).data('id')); // "12314"
+  initdetail($(this).data('id'));
 });
 $(document).on("click", ".movies-box",function(){
-  initdetail($(this).data('id')); // "12314"
+  initdetail($(this).data('id'));
 });
 $(document).on("click", ".autocom-box li",function(){
   initdetail($(this).data('id'));
@@ -145,65 +141,6 @@ function initdetail(id) {
     };
   xhr.send();
 }
-function getData(callback,url) {
-
-    var xhr = new XMLHttpRequest();  
-    xhr.onreadystatechange = function() {
-  
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        var jsonData = JSON.parse(xhr.responseText);
-        // arr = jsonData.data.children;
-  
-        // let myJson = [];
-        // for (let i = 0; i < arr.length; i++) {
-        //   let newObject = {};
-        //   newObject.title = arr[i].data.title;
-        //   newObject.upvotes = arr[i].data.ups;
-        //   newObject.score = arr[i].data.score;
-        //   newObject.num_comments = arr[i].data.num_comments;
-        //   newObject.created = arr[i].created_utc;
-        //   myJson.push(newObject);
-        // }
-  
-        // Invoke the callback now with your recieved JSON object
-        callback(jsonData);
-      }
-    };
-    xhr.open("GET", url, true);
-    xhr.send();
-}
-
-//   (function($) {
-
-// 	"use strict";
-
-// 	var fullHeight = function() {
-
-// 		$('.js-fullheight').css('height', $(window).height());
-// 		$(window).resize(function(){
-// 			$('.js-fullheight').css('height', $(window).height());
-// 		});
-
-// 	};
-// 	fullHeight();
-// 	carousel();
-
-// })(jQuery);
-//   $(document).ready(function() {
-
-
-//   });
-
-//   $("#myCarousel").carousel();
-//   // Enable Carousel Indicators
-// $(".item").click(function(){
-//   $("#myCarousel").carousel(1);
-// });
-
-// // Enable Carousel Controls
-// $(".left").click(function(){
-//   $("#myCarousel").carousel("prev");
-// });
 
 // modal
 $('#exampleModalCenter').bind('hidden.bs.modal', function () {
@@ -211,6 +148,18 @@ $('#exampleModalCenter').bind('hidden.bs.modal', function () {
 });
 $('#exampleModalCenter').bind('show.bs.modal', function () {
   $("html").css("margin-right", "-15px");
+});
+//   $(".search-input").classList.remove("active");
+$(document).click(function(event) { 
+  var $target = $(event.target);
+  if(!$target.closest('.search-input').length && 
+  $('.search-input').is(":visible")) {
+    $('.search-input')[0].classList.remove("active");
+  }
+  else if($target.closest('.search-input').length && 
+  $('.search-input').is(":visible")) {
+    $('.search-input')[0].classList.add("active");
+  }
 });
 function removeAllChildNodes(parent) {
   while (parent.firstChild) {
@@ -224,15 +173,12 @@ function initFilterDropDown() {
   xhr.onreadystatechange = function() {
       if (xhr.readyState === 4) {
           var data = JSON.parse(xhr.responseText).genres;
-          // Use the object however you wish
-          // <div class="overlay"> <div class="overlay-text">Hello World</div></div> <div data-toggle="modal" data-target="#exampleModalCenter" data-id="insdsa"> Launch demo modal </div>
           document.getElementById("selected").innerHTML = data[0].name;
           getFilterSearch(data[0].id);
           for (i = 0; i < data.length; i++) {
             var str = '<a class="dropdown-item" data-dropup-auto="false" href="javascript:void(0);" data-genre-id="' + data[i].id + '">' + data[i].name + '</a>';
             document.querySelector(".filter-dropdown").insertAdjacentHTML('beforeend', str);
           }
-          // document.getElementById("dropdown-item").addEventListener("click", getFilterSearch($(this).data('genre-id')));
           $('.dropdown-menu a').click(function(){
             console.log($(this).text());
             $('#selected').text($(this).text());
@@ -249,18 +195,11 @@ function getFilterSearch(id) {
   xhr.onreadystatechange = function() {
       if (xhr.readyState === 4) {
           var data = JSON.parse(xhr.responseText).results;
-          // Use the object however you wish
-          // <div class="overlay"> <div class="overlay-text">Hello World</div></div> <div data-toggle="modal" data-target="#exampleModalCenter" data-id="insdsa"> Launch demo modal </div>
           removeAllChildNodes(document.getElementById("movies-list"));
           for (i = 0; i < data.length; i++) {
             var str = '<div class="movies-box " data-toggle="modal" data-target="#exampleModalCenter" data-id="' + data[i].id + '"><div class="movies-img"> <div class="release-date">'+ data[i].release_date+'</div><img src=http://image.tmdb.org/t/p/w185' + data[i].poster_path + '> </div><a href="javascript:void(0);">' + data[i].title + '</a></div>';
             document.querySelector("#movies-list").insertAdjacentHTML('beforeend', str);
           }
-          // document.getElementById("dropdown-item").addEventListener("click", getFilterSearch);
-          // $('.dropdown-menu a').click(function(){
-          //   console.log($(this).text());
-          //   $('#selected').text($(this).text());
-          // });
       }
   };
   xhr.send();
@@ -280,34 +219,6 @@ $(document).on('click', 'a[href^="#"]', function(event) {
 window.setTimeout(offsetAnchor, 0);
 
 
-let suggestions = [
-  "Channel",
-  "CodingLab",
-  "CodingNepal",
-  "YouTube",
-  "YouTuber",
-  "YouTube Channel",
-  "Blogger",
-  "Bollywood",
-  "Vlogger",
-  "Vechiles",
-  "Facebook",
-  "Freelancer",
-  "Facebook Page",
-  "Designer",
-  "Developer",
-  "Web Designer",
-  "Web Developer",
-  "Login Form in HTML & CSS",
-  "How to learn HTML & CSS",
-  "How to learn JavaScript",
-  "How to became Freelancer",
-  "How to became Web Designer",
-  "How to start Gaming Channel",
-  "How to start YouTube Channel",
-  "What does HTML stands for?",
-  "What does CSS stands for?",
-];
 // getting all required elements
 const searchWrapper = document.querySelector(".search-input");
 const inputBox = searchWrapper.querySelector("input");
@@ -318,9 +229,8 @@ let webLink;
 
 // if user press any key and release
 inputBox.onkeyup = (e)=>{
-    let userData = e.target.value; //user enetered data
+    let userData = e.target.value;
     let emptyArray = [];
-    suggestions = [];
     if(userData){
         icon.onclick = ()=>{
             webLink = "https://www.google.com/search?q=" + userData;
@@ -333,12 +243,9 @@ inputBox.onkeyup = (e)=>{
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4) {
                 var data = JSON.parse(xhr.responseText).results;
-                // Use the object however you wish
-                // <div class="overlay"> <div class="overlay-text">Hello World</div></div> <div data-toggle="modal" data-target="#exampleModalCenter" data-id="insdsa"> Launch demo modal </div>
                 removeAllChildNodes(suggBox);
                 if(userData.length >= 3) {
                   for(var i = 0; i < data.length; i++) {
-                    // suggestions.push(data[i].title);
                     if(data[i].poster_path == null) {
                       var str = '<li data-id="' + data[i].id + '" data-toggle="modal" data-target="#exampleModalCenter">'+ data[i].title +'</li>';
                       suggBox.insertAdjacentHTML('beforeend', str);
@@ -349,7 +256,6 @@ inputBox.onkeyup = (e)=>{
                   }
                 } else {
                   for(var i = 0; i < data.length; i++) {
-                    // suggestions.push(data[i].title);
                     if(!data[i].title.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase())) {
                       continue;
                     }
@@ -362,28 +268,8 @@ inputBox.onkeyup = (e)=>{
                     }
                   }
                 }
-                // for(var i = 0; i < data.length; i++) {
-                //   suggestions.push(data[i].title);
-                // }
-                // emptyArray = suggestions.filter((data)=>{
-                //   //filtering array value and user characters to lowercase and return only those words which are start with user enetered chars
-                //   return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase()); 
-                //   // return data; 
-                // });
-                // emptyArray = emptyArray.map((data)=>{
-                //     // passing return data inside li tag
-                //     return data = '<li>'+ data +'</li>';
-                // });
-                searchWrapper.classList.add("active"); //show autocomplete box
-                // showSuggestions(emptyArray);
+                searchWrapper.classList.add("active");
                 let allList = suggBox.querySelectorAll("li");
-                // for (let i = 0; i < allList.length; i++) {
-                //     //adding onclick attribute in all li tag
-                //     allList[i].setAttribute("onclick", "select(this)");
-                //     // allList[i].setAttribute("onclick", function(){
-                //     //   this.setAttribute("onclick", "select(this)");
-                //     // });
-                // }
             }
         };
         xhr.send();

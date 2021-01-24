@@ -24,69 +24,17 @@
       <script src="../slick/slick.min.js"></script>
       <script src="../js/lightslider.js"></script>
    </head>
-   <!-- <div class="center slider autoplay slickplay">
-      <div class="eachsliderimage">
-          <img src="img/about-02.jpg" alt="">
-      </div>
-      <div class="eachsliderimage">
-          <img src="img/about-03.jpg" alt="">
-      </div>
-      <div class="eachsliderimage">
-          <img src="img/about-01.jpg" alt="">
-      </div>
-      <div class="eachsliderimage">
-          <img src="img/about-02.jpg" alt="">
-      </div>
-      </div> -->
    <!--navigation-------------->
    <body id="background">
       <nav>
-         <!--logo--------------->
-         <!-- <a href="index.html" class="logo">
-            <img src="img/logo.png"/>
-            </a> -->
-         <!--menu-------------->
          <ul class="menu">
             <li><a href="https://www.netflix.com/">Nextflix</a></li>
             <li><a href="https://www.amc.com/">AMC</a></li>
             <li><a href="https://www.regmovies.com/">Regal</a></li>
             <li><a href="#filter">FILTER</a></li>
-            <li><a href="#filter">SEARCH</a></li>
          </ul>
-         <!--search------------->
-         <!-- <div class="search">
-            <input type="text" placeholder="Find Your Favorite Movies"/>
-            <i class="fas fa-search"></i>
-         </div> -->
       </nav>
-      <!-- <div type="button" data-target="#exampleModalCenter" data-id="insdsa">
-         Launch demo modal
-         </div> -->
-      <!-- Modal -->
-      <!-- <div class="container">
-         <h2>Filterable List</h2>
-         <p>Type something in the input field to search the list for specific items:</p>  
-         <input class="form-control" id="myInput" type="text" placeholder="Search..">
-         <br>
-         <ul class="list-group" id="myList">
-           <li class="list-group-item">First item</li>
-           <li class="list-group-item">Second item</li>
-           <li class="list-group-item">Third item</li>
-           <li class="list-group-item">Fourth</li>
-         </ul>  
-       </div>
-       
-       <script>
-       $(document).ready(function(){
-         $("#myInput").on("keyup", function() {
-           var value = $(this).val().toLowerCase();
-           $("#myList li").filter(function() {
-             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-           });
-         });
-       });
-       </script> -->
-       <div class="search-wrapper">
+       <div id="search-wrapper">
          <div class="search-input">
            <a href="" target="_blank" hidden></a>
            <input type="text" placeholder="Type to search..">
@@ -130,8 +78,6 @@
          <h2 class="latest-heading">Latest Movies</h2>
          <!--slider------------------->
          <ul id="autoWidth2" class="cs-hidden latest-append-start">
-            <!-- <ul class="cs-hidden latest-append-start"> -->
-            <!-- to be added in js -->
          </ul>
       </section>
       <!--movies---------------------------->
@@ -140,10 +86,6 @@
             <span id="selected">Chose option</span><span class="caret"></span></a>
          </button>
          <div class="dropdown-menu filter-dropdown">
-           <!-- <a class="dropdown-item" href="#" data-genre-id="">Action</a> -->
-           <!-- <a class="dropdown-item" href="#">Another action</a>
-           <a class="dropdown-item" href="#">Something else here</a>
-           <a class="dropdown-item" href="#">Separated link</a> -->
          </div>
       </div>
       <section id="movies-list">
@@ -154,7 +96,6 @@
          <p>Going To Internet, Ltd Consumer Website</p>
          <p>Copyright 2020 - GoingToInternet</p>
       </footer>
-
       <script src="../js/movie/carousel.js"></script>
       <script src='../js/movie/movie.js'></script>
    </body>

@@ -732,12 +732,12 @@ body.modal-open {
   background: #664AFF;
 }
 
-.search-wrapper{
+#search-wrapper{
   max-width: 600px;
   margin: 150px auto;
 }
 
-.search-wrapper .search-input{
+#search-wrapper .search-input{
   background: #fff;
   width: 100%;
   border-radius: 5px;
