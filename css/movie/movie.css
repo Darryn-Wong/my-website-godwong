@@ -11,13 +11,12 @@ body{
   /* The image used */
   /*https://i.pinimg.com/originals/c0/d3/c0/c0d3c04f52dbebb886cbf8e34b229df4.jpg*/
   /*https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0wHY7_Jpl0a5WPETVQ7oV4S9J4Ms1iWLv_Q&usqp=CAU*/ 
-  background-image: url("https://bpi-group.us/wp-content/uploads/2020/04/Abstract-Background-Light-Blue-Tech-shutterstock_275897564-Converted.png");
+  background-image: url("https://biddown.com/wp-content/uploads/2020/02/Light-blue-tech-background-vector-05-1.png");
   
   background-color: rgba(255,255,255,0.2);
   background-blend-mode: lighten;
   /* Full height */
   height: 100%; 
-
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
