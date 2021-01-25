@@ -77,7 +77,7 @@ hr { border-top: 4px solid #CCC; }
 }
 
 .tm-section-wrap {
-    width: calc(100% - 550px);
+    width: calc(100% - 800px);
     margin-left: 550px;
 	margin-right: 0;
 	position: relative;
