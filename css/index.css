@@ -1,5 +1,6 @@
 /*
-	
+This site was originally created from a template at
+
 TemplateMo 555 Upright
 
 https://templatemo.com/tm-555-upright
@@ -50,10 +51,12 @@ hr { border-top: 4px solid #CCC; }
 }
 
 /* Layout */
-
+/* #left-nav {
+	float: left;
+} */
 .tm-main { width: 100%; }
 
-.tm-row-home { 
+.tm-row-experience { 
 	padding-left: 15px;
 	padding-right: 15px;
 }
@@ -70,11 +73,12 @@ hr { border-top: 4px solid #CCC; }
 	padding-left: 40px;
 	padding-top: 40px;
 	width: 280px;
+	margin-left: 10%;
 }
 
 .tm-section-wrap {
-	width: calc(100% - 750px);
-	margin-left: 750px;
+    width: calc(100% - 550px);
+    margin-left: 550px;
 	margin-right: 0;
 	position: relative;
 }
@@ -135,6 +139,7 @@ hr { border-top: 4px solid #CCC; }
     align-items: center;
 	justify-content: center;
 	margin-bottom: 100px;
+	text-align: center;
 }
 
 #tm-main-nav {
@@ -187,8 +192,20 @@ hr { border-top: 4px solid #CCC; }
 }
 
 /* Home section */
+.job-titile {
+	font-size: 25px;
+}
 #home { min-height: 100vh; }
-.tm-col-home-l { width: calc(100% - 300px); }
+.tm-col-experience-l { width: 100% }
+#work-experience-header {
+	align-content: center;
+	font-size: 21px;
+	text-align: center;
+	font-weight: bold;
+}
+#work-experience-header p {
+	color: #006699;	
+}
 
 .tm-img-home-container {
 	width: 250px;
@@ -200,7 +217,7 @@ hr { border-top: 4px solid #CCC; }
 }
 
 @media (max-width: 1600px) {
-	.tm-col-home-l { width: calc(100% - 250px); }
+	.tm-col-experience-l { width: 100% }
 
 	.tm-img-home-container {
 		width: 200px;
@@ -228,7 +245,6 @@ hr { border-top: 4px solid #CCC; }
 .tm-post-link:hover {
 	color: #068ccf;
 }
-
 /* Gallery section */
 .tm-gallery {
 	position: relative;
@@ -663,7 +679,7 @@ select:not([multiple]) {
 }
 
 @media (max-width: 1200px) {
-	.tm-col-home {
+	.tm-col-experience {
 		flex: 0 0 100%;
 		max-width: 100%;
 		padding-right: 15px;
@@ -683,6 +699,7 @@ select:not([multiple]) {
 	.tm-sidebar {
 		left: -280px;
 		transition: all 0.3s ease;
+		margin-left: 0%;
 	}
 
 	.navbar-toggler {
