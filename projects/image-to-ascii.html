@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ascii Art Converter</title>
+    <!-- <link rel="stylesheet" href="../fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../css/magnific-popup.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../slick/slick.min.css">
+    <link rel="stylesheet" href="../slick/slick-theme.css">
+    <link rel="stylesheet" href="../css/templatemo-upright.css">
+    <link rel="stylesheet" href="../css/lightslider.css">
+    <link rel="stylesheet" href="../css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../css/owl.theme.default.min.css"> -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="../css/mdb.min.css"> -->
+    <link rel="stylesheet" href="../css/image-to-ascii/image-to-ascii.css">
+</head>
+
+<body>
+    <header>
+        <h1>Ascii Art Converter</h1>
+        <p>Upload a picture and turn it into pure ASCII masterpiece!</p>
+        <p>Higher resolution results in more detailed picture.</p>
+    </header>
+    <div class="my-4">
+        <form class="float-left range-field">
+            Width scale
+            <input id="width" class="border-0" type="range" min="80" max="1000" value="80" />
+        </form>
+        <span class="font-weight-bold text-primary ml-2 mt-1 widthValueSpan"></span>
+    </div>
+
+    <div class="my-4">
+        <form class="float-left range-field">
+            Height scale
+            <input id="height" class="border-0" type="range" min="80" max="1000" value="80" />
+        </form>
+        <span class="font-weight-bold text-primary ml-2 mt-1 heightValueSpan"></span>
+    </div>
+
+    <!-- <input type="file" name="picture" /> -->
+    <div class="custom-file w-50 my-4 noselect">
+        <input type="file" class="custom-file-input" id="validatedCustomFile">
+        <label class="custom-file-label overflow-hidden noselect" for="validatedCustomFile" id="fileName">Choose
+            file...</label>
+    </div>
+    <br>
+    <button type="button" class="btn btn-primary" id="refresh" disabled>Refresh</button>
+
+    <canvas id="preview" style="display: none;"></canvas>
+    <pre id="ascii"></pre>
+
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <!-- <script src="../js/popper.js"></script> -->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- <script src="../js/mdb.min.js"></script> -->
+    <script src="../js/image-to-ascii/image-to-ascii.js"></script>
+</body>
+
+</html>

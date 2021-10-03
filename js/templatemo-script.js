@@ -2,6 +2,9 @@
  * Credits
  * Isotope with paging: https://codepen.io/TimRizzo/details/ervrRq
  */
+$('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+})
 
 $(document).ready(function () {
 
@@ -11,12 +14,12 @@ $(document).ready(function () {
         filter: ':not(.external)'
     });
 
-    $(".navbar-toggler").on("click", function(e) {
+    $(".navbar-toggler").on("click", function (e) {
         $(".tm-sidebar").toggleClass("show");
         e.stopPropagation();
     });
 
-    $("html").click(function(e) {
+    $("html").click(function (e) {
         var sidebar = document.getElementById("tm-sidebar");
 
         if (!sidebar.contains(e.target)) {
@@ -24,14 +27,14 @@ $(document).ready(function () {
         }
     });
 
-    $("#tm-sidebar .nav-link").click(function(e) {
+    $("#tm-sidebar .nav-link").click(function (e) {
         $(".tm-sidebar").removeClass("show");
     });
 
     /*************** Gallery ******************/
-    
-    var itemSelector = ".tm-gallery-item"; 
-    var responsiveIsotope = [ [480, 4], [720, 6], [1920, 9] ];
+
+    var itemSelector = ".tm-gallery-item";
+    var responsiveIsotope = [[480, 4], [720, 6], [1920, 9]];
     var itemsPerPageDefault = 12;
     var itemsPerPage = defineItemsPerPage();
     var currentNumberPages = 1;
@@ -39,14 +42,14 @@ $(document).ready(function () {
     var currentFilter = '*';
     var filterValue = "";
     var pageAttribute = 'data-page';
-    var pagerClass = 'tm-paging';    
-    var $container = $('.tm-gallery').isotope({ 
+    var pagerClass = 'tm-paging';
+    var $container = $('.tm-gallery').isotope({
         itemSelector: itemSelector
     });
 
-    $container.imagesLoaded().progress( function() {
+    $container.imagesLoaded().progress(function () {
         $container.isotope('layout');
-    }); 
+    });
 
     function changeFilter(selector) { $container.isotope({ filter: selector }); }
 
@@ -54,23 +57,23 @@ $(document).ready(function () {
         currentPage = n;
         var selector = itemSelector;
         var exclusives = [];
-        
-        if(currentFilter != '*') {
+
+        if (currentFilter != '*') {
             exclusives.push(selector + '.' + currentFilter);
-        }    
+        }
 
         filterValue = exclusives.length ? exclusives.join('') : '*';
 
         var wordPage = currentPage.toString();
-        filterValue += ('.'+wordPage);
+        filterValue += ('.' + wordPage);
         changeFilter(filterValue);
     }
 
     function defineItemsPerPage() {
         var pages = itemsPerPageDefault;
 
-        for( var i = 0; i < responsiveIsotope.length; i++ ) {
-            if( $(window).width() <= responsiveIsotope[i][0] ) {
+        for (var i = 0; i < responsiveIsotope.length; i++) {
+            if ($(window).width() <= responsiveIsotope[i][0]) {
                 pages = responsiveIsotope[i][1];
                 break;
             }
@@ -78,63 +81,63 @@ $(document).ready(function () {
         return pages;
     }
 
-    function setPagination() {    
-        var SettingsPagesOnItems = function(){
+    function setPagination() {
+        var SettingsPagesOnItems = function () {
             var itemsLength = $container.children(itemSelector).length;
             var pages = Math.ceil(itemsLength / itemsPerPage);
             var item = 1;
             var page = 1;
             var selector = itemSelector;
             var exclusives = [];
-                
-                if(currentFilter != '*') {
-                    exclusives.push(selector + '.' + currentFilter);
-                }                
 
-                filterValue = exclusives.length ? exclusives.join('') : '*';
-                
-                $container.children(filterValue).each(function(){
-                    if( item > itemsPerPage ) {
-                        page++;
-                        item = 1;
-                    }
-                    wordPage = page.toString();
-                    
-                    var classes = $(this).attr('class').split(' ');
-                    var lastClass = classes[classes.length-1];
-                    
-                    if(lastClass.length < 4){
-                        $(this).removeClass();
-                        classes.pop();
-                        classes.push(wordPage);
-                        classes = classes.join(' ');
-                        $(this).addClass(classes);
-                    } else {
-                       $(this).addClass(wordPage); 
-                    }
-                    item++;
-                });
+            if (currentFilter != '*') {
+                exclusives.push(selector + '.' + currentFilter);
+            }
+
+            filterValue = exclusives.length ? exclusives.join('') : '*';
+
+            $container.children(filterValue).each(function () {
+                if (item > itemsPerPage) {
+                    page++;
+                    item = 1;
+                }
+                wordPage = page.toString();
+
+                var classes = $(this).attr('class').split(' ');
+                var lastClass = classes[classes.length - 1];
+
+                if (lastClass.length < 4) {
+                    $(this).removeClass();
+                    classes.pop();
+                    classes.push(wordPage);
+                    classes = classes.join(' ');
+                    $(this).addClass(classes);
+                } else {
+                    $(this).addClass(wordPage);
+                }
+                item++;
+            });
             currentNumberPages = page;
         }();
-        
-        var CreatePagers = function() {
-            
-            var $isotopePager = ( $('.'+pagerClass).length == 0 ) ? $('<div class="'+pagerClass+'"></div>') : $('.'+pagerClass);
+
+        var CreatePagers = function () {
+
+            var $isotopePager = ($('.' + pagerClass).length == 0) ? $('<div class="' + pagerClass + '"></div>') : $('.' + pagerClass);
 
             $isotopePager.html('');
-            if(currentNumberPages > 1){
-                for( var i = 0; i < currentNumberPages; i++ ) {
+            if (currentNumberPages > 1) {
+                for (var i = 0; i < currentNumberPages; i++) {
                     var $pager = '';
 
-                    if(currentPage == i+1) {
-                        $pager = $('<a href="javascript:void(0);" class="active tm-paging-link" '+pageAttribute+'="'+(i+1)+'"></a>');
+                    if (currentPage == i + 1) {
+                        $pager = $('<a href="javascript:void(0);" class="active tm-paging-link" ' + pageAttribute + '="' + (i + 1) + '"></a>');
                     } else {
-                        $pager = $('<a href="javascript:void(0);" class="tm-paging-link" '+pageAttribute+'="'+(i+1)+'"></a>');
+                        $pager = $('<a href="javascript:void(0);" class="tm-paging-link" ' + pageAttribute + '="' + (i + 1) + '"></a>');
                     }
-                        
-                    $pager.html(i+1);
 
-                    $pager.click(function(){
+                    $pager.html(i + 1);
+
+                    $pager.click(function () {
                         $('.tm-paging-link').removeClass('active');
                         $(this).addClass('active');
                         var page = $(this).eq(0).attr(pageAttribute);
@@ -150,8 +153,8 @@ $(document).ready(function () {
     setPagination();
     goToPage(1);
 
-    $('.tm-gallery-link').click(function(e) {        
-        var filter = $(this).data('filter');        
+    $('.tm-gallery-link').click(function (e) {
+        var filter = $(this).data('filter');
         currentFilter = filter;
         setPagination();
         goToPage(1);
@@ -161,7 +164,7 @@ $(document).ready(function () {
 
     /****************** Window resize ******************/
 
-    $(window).resize(function(){
+    $(window).resize(function () {
         itemsPerPage = defineItemsPerPage();
         setPagination();
         goToPage(1);
@@ -179,14 +182,14 @@ $(document).ready(function () {
 
     /****************** Smooth Scrolling *****************/
 
-    $(".tm-btn-next").on('click', function(event) {
+    $(".tm-btn-next").on('click', function (event) {
         if (this.hash !== "") {
             event.preventDefault();
             var hash = this.hash;
 
             $('html, body').animate({
                 scrollTop: $(hash).offset().top
-            }, 800, function(){
+            }, 800, function () {
                 // window.location.hash = hash;
             });
         }

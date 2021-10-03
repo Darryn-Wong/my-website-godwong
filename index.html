@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Darryn Wong</title>
-    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet"> <!-- https://fonts.google.com/specimen/Kumbh+Sans -->
-    <link rel="stylesheet" href="fontawesome/css/all.min.css">  <!-- https://fontawesome.com/-->  
-    <link rel="stylesheet" href="css/magnific-popup.css">       <!-- https://dimsemenov.com/plugins/magnific-popup/ -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">        <!-- https://getbootstrap.com/ -->
-    <link rel="stylesheet" href="slick/slick.min.css">          <!-- https://kenwheeler.github.io/slick/ -->
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet">
+    <!-- https://fonts.google.com/specimen/Kumbh+Sans -->
+    <link rel="stylesheet" href="fontawesome/css/all.min.css"> <!-- https://fontawesome.com/-->
+    <link rel="stylesheet" href="css/magnific-popup.css"> <!-- https://dimsemenov.com/plugins/magnific-popup/ -->
+    <link rel="stylesheet" href="css/bootstrap.min.css"> <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="slick/slick.min.css"> <!-- https://kenwheeler.github.io/slick/ -->
     <link rel="stylesheet" href="slick/slick-theme.css">
     <link rel="stylesheet" href="css/index.css">
-<!--
+    <!--
 
 TemplateMo 555 Upright
 
@@ -19,7 +21,93 @@ https://templatemo.com/tm-555-upright
 
 -->
 </head>
+
+
 <body>
+    <!-- Modals -->
+    <div class="modal fade" id="movieModal" tabindex="-1" role="dialog" aria-labelledby="movieModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="movieModalLabel">Movie Site</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>This is a personal movie website with features including searching for a movie and getting
+                        details, genres, and displaying relevant links. <br>
+                        This application uses API calls to retrieve the data from The Movie Database and populate the
+                        website (TMDb).<br>
+                        This app uses pure Javascript and HTML/CSS.</p>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-link" href="projects/movie.html">view page</a>
+                    <button type="button" class="btn btn-secondary float-left" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="shopModal" tabindex="-1" role="dialog" aria-labelledby="shopModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="shopModalLabel">Online Shop Site</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>This website is a school project created by Darryn Wong, Alex Truong, and Kenneth Truong.<br>
+                        This application aims to add innovation and twist in functionalities to a real world online
+                        store. <br>
+                        This trading platform features selling and listing
+                        products, comment, admin portal, transaction, sales analysis, and customer service.<br>
+                        This application was built using Javascript, Node.js, React.js, MongoDB, and Heroku.<br>
+                    </p>
+                    <hr class="mb-2">
+                    <p>This app uses Heroku's free service for hosting. It may take a while for the first time to
+                        load.
+                    </p>
+                    <hr class="mb-2">
+                    <p>To see the more advanced features of this app please contact the author for a demo.</p>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-link" href="https://my-eelectronic-v2.herokuapp.com/">view page</a>
+                    <button type="button" class="btn btn-secondary float-left" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="personalityQuizModal" tabindex="-1" role="dialog"
+        aria-labelledby="personalityQuizModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="personalityQuizModalLabel">personalityQuiz Site</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        This is a school project created by Darryn Wong, Micheal Moon, and Ryan Patrick <br>
+                        A platform where individuals could make and take quizzes to determine what kind of anime
+                        character they resemble.<br>
+                        This project uses Javascript, Bootstrap, HTML/CSS, and Firebase. <br>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-link" href="https://character-quiz-6dc98.web.app/">view page</a>
+                    <button type="button" class="btn btn-secondary float-left" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container-fluid">
         <div class="row">
             <!-- Leftside bar -->
@@ -31,9 +119,9 @@ https://templatemo.com/tm-555-upright
                     <div>
                         <div class="tm-brand-box">
                             <h1 class="tm-brand">Darryn Wong</h1>
-                        </div>                
+                        </div>
                         <ul id="tm-main-nav">
-                            <li class="nav-item">                                
+                            <li class="nav-item">
                                 <a href="#home" class="nav-link current">
                                     <div class="triangle-right"></div>
                                     <i class="fas fa-home nav-icon"></i>
@@ -61,7 +149,7 @@ https://templatemo.com/tm-555-upright
                     </footer> -->
                 </nav>
             </div>
-            
+
             <div class="tm-main">
                 <!-- Home section -->
                 <div class="tm-section-wrap">
@@ -77,19 +165,30 @@ https://templatemo.com/tm-555-upright
                                     </p>
                                     <p>
                                         I’m an innovative software engineer with 7 months of working experience.
-                                        I'll be graduating with a Bachelor of Science in Computer Science degree. I am looking for opportunities to work as a <strong>software engineer</strong>/<strong>devloper</strong> or <strong>front-end</strong>/<strong>back-end</strong>/<strong>full-stack web developer</strong>.
+                                        I'll be graduating with a Bachelor of Science in Computer Science degree. I am
+                                        looking for opportunities to work as a <strong>software
+                                            engineer</strong>/<strong>devloper</strong> or
+                                        <strong>front-end</strong>/<strong>back-end</strong>/<strong>full-stack web
+                                            developer</strong>.
                                     </p>
-                                </div>                                
+                                </div>
                             </div>
                             <div class="col-lg-6 tm-col-experience mb-4">
                                 <div class="tm-text-container">
                                     <p>
-                                        I've been mainly working with <strong>Java</strong>, <strong>C++</strong>, <strong>HTML/CSS</strong> and <strong>Javascript</strong> for my education and carrer. I am also familiar with <strong>SQL</strong>,<strong> MySQL</strong>, and <strong>MongoDB</strong>. During my span of a programmer, I also picked up tools such as <strong>Maven</strong>, <strong>Docker</strong>, <strong>Kubernetes</strong>, <strong>Git/GitHub</strong>, <strong>CVS</strong>, and <strong>Unity</strong> </strong> as well as frameworks like <strong>Spring</strong> and <strong>Express</strong>. 
+                                        I've been mainly working with <strong>Java</strong>, <strong>C++</strong>,
+                                        <strong>HTML/CSS</strong> and <strong>Javascript</strong> for my education and
+                                        carrer. I am also familiar with <strong>SQL</strong>,<strong> MySQL</strong>,
+                                        and <strong>MongoDB</strong>. During my span of a programmer, I also picked up
+                                        tools such as <strong>Maven</strong>, <strong>Docker</strong>,
+                                        <strong>Kubernetes</strong>, <strong>Git/GitHub</strong>, <strong>CVS</strong>,
+                                        and <strong>Unity</strong> </strong> as well as frameworks like
+                                        <strong>Spring</strong> and <strong>Express</strong>.
                                     </p>
-                                    
+
                                     <div class="text-right">
                                         <a href="#gallery" class="btn btn-primary tm-btn-next">Projects</a>
-                                    </div>                                   
+                                    </div>
                                 </div>
                             </div>
                             <!-- <div class="col-lg-6 tm-col-experience mb-4">
@@ -101,55 +200,67 @@ https://templatemo.com/tm-555-upright
                             </div> -->
                         </div>
                         <hr class="tm-hr-short mb-5">
-                        <div id = "work-experience-header">
+                        <div id="work-experience-header">
                             <p>Work Experience</p>
                         </div>
-                        <div class="row tm-row-experience">                            
+                        <div class="row tm-row-experience">
                             <div class="tm-col-experience tm-col-experience-l">
                                 <div class="media mb-4">
                                     <!-- <i class="fas fa-scroll fa-4x tm-post-icon tm-text-primary"></i> -->
                                     <div class="media-body">
-                                        <a href="https://freightgate.net/" class="d-block mb-2 tm-text-primary tm-post-link job-titile"> Freightgate, Software Engineer Intern (June 2020 - Janunary 2021)</a>  
-                                        <p> 
-                                            • Created a web crawler in Java that helped the company's marketing team and saved them hours on outreach marketing. <br>
-                                            • Created and maintained Java and Python applications that parse shipment data and store it into the company's database. <br>
-                                            • Worked directly with other engineers and employees in the company to improve/maintain existing applications. <br>
+                                        <a href="https://freightgate.net/"
+                                            class="d-block mb-2 tm-text-primary tm-post-link job-titile"> Freightgate,
+                                            Software Engineer Intern (June 2020 - Janunary 2021)</a>
+                                        <p>
+                                            • Created a web crawler in Java that helped the company's marketing team and
+                                            saved them hours on outreach marketing. <br>
+                                            • Created and maintained Java and Python applications that parse shipment
+                                            data and store it into the company's database. <br>
+                                            • Worked directly with other engineers and employees in the company to
+                                            improve/maintain existing applications. <br>
                                             • Used Docker to host applications on Kubernetes. <br>
-                                            • Directly spoken to a client and tweaked the application to accommodate his needs. <br>
+                                            • Directly spoken to a client and tweaked the application to accommodate his
+                                            needs. <br>
                                         </p>
-                                    </div>                                    
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <hr class="tm-hr-short mb-5">
-                        <div id = "work-experience-header">
+                        <div id="work-experience-header">
                             <p>Education</p>
                         </div>
-                        <div class="row tm-row-experience">                            
+                        <div class="row tm-row-experience">
                             <div class="tm-col-experience tm-col-experience-l">
                                 <div class="media mb-4">
                                     <!-- <i class="fas fa-scroll fa-4x tm-post-icon tm-text-primary"></i> -->
                                     <div class="media-body">
-                                        <a href="javascript:void(0);" class="d-block mb-2 tm-text-primary tm-post-link job-titile"> California State Unviersity, Fullerton (August 2018 - December 2021)</a>  
-                                        <p> 
+                                        <a href="javascript:void(0);"
+                                            class="d-block mb-2 tm-text-primary tm-post-link job-titile"> California
+                                            State Unviersity, Fullerton (August 2018 - December 2021)</a>
+                                        <p>
                                             • Graduating with a Bachelor of Science in Computer Science.<br>
-                                            • Anticipated graduation date December 2021<br>
-                                            • Major GPA: 3.7 <br>
-                                            • Cumulative GPA: 3.6 <br>
+                                            • Anticipated graduation date Janunary 2022<br>
+                                            • Major GPA: 3.78 <br>
+                                            • Cumulative GPA: 3.66 <br>
                                         </p>
-                                    </div>                                    
+                                    </div>
                                 </div>
                             </div>
                             <div class="tm-col-experience tm-col-experience-l">
                                 <div class="media mb-4">
                                     <!-- <i class="fas fa-scroll fa-4x tm-post-icon tm-text-primary"></i> -->
                                     <div class="media-body">
-                                        <a href="javascript:void(0);" class="d-block mb-2 tm-text-primary tm-post-link job-titile"> NASA L'SPACE Lucy Mission (July 2019 - September 2019)</a>  
-                                        <p> 
-                                            • Led a team of 7 members to develop a probe to perform a possibility of water sampling on the moon Titan.<br>
-                                            • Created a preliminary design report with thorough explanations on every phase and CAD diagrams.<br>
+                                        <a href="javascript:void(0);"
+                                            class="d-block mb-2 tm-text-primary tm-post-link job-titile"> NASA L'SPACE
+                                            Lucy Mission (July 2019 - September 2019)</a>
+                                        <p>
+                                            • Led a team of 7 members to develop a probe to perform a possibility of
+                                            water sampling on the moon Titan.<br>
+                                            • Created a preliminary design report with thorough explanations on every
+                                            phase and CAD diagrams.<br>
                                         </p>
-                                    </div>                                    
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -195,11 +306,28 @@ https://templatemo.com/tm-555-upright
                         </ul>
                         <div class="tm-gallery">
                             <figure class="effect-honey tm-gallery-item website">
-                                <img src="img/movie.PNG" alt="Image"/>
+                                <img src="img/movie.PNG" alt="Image" />
                                 <figcaption>
                                     <h2><i>Movie Site</i></h2>
-                                    <a href="projects/movie.html">View more</a>
-                                </figcaption>			
+                                    <a data-toggle="modal" data-target="#movieModal"></a>
+                                    <!-- <a href="projects/movie.html">View more</a> -->
+                                </figcaption>
+                            </figure>
+                            <figure class="effect-honey tm-gallery-item website">
+                                <img src="img/onlineShop.PNG" alt="Image" />
+                                <figcaption>
+                                    <h2><i>Online Shopping</i></h2>
+                                    <a data-toggle="modal" data-target="#shopModal"></a>
+                                    <!-- <a href="https://my-eelectronic-v2.herokuapp.com/">View more</a> -->
+                                </figcaption>
+                            </figure>
+                            <figure class="effect-honey tm-gallery-item website">
+                                <img src="img/quizzzy.PNG" alt="Image" />
+                                <figcaption>
+                                    <h2><i>Online Personality Quiz</i></h2>
+                                    <a data-toggle="modal" data-target="#personalityQuizModal"></a>
+                                    <!-- <a href="https://character-quiz-6dc98.web.app/">View more</a> -->
+                                </figcaption>
                             </figure>
                             <!-- original code -->
                             <!-- <figure class="effect-honey tm-gallery-item animal">
@@ -228,14 +356,14 @@ https://templatemo.com/tm-555-upright
                                             frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                                     </div>
                                 </div> -->
-            
+
                                 <!-- Address
                                 <address class="mb-4">
                                     120-240 eget purus luctus sodales. Sed<br>
                                     auctor odio quis ligula dignissim efficitur<br>
                                     vitae vitae quam 16502
                                 </address> -->
-            
+
                                 <!-- Links -->
                                 <ul class="tm-contact-links mb-4">
                                     <li class="mb-3">
@@ -252,23 +380,27 @@ https://templatemo.com/tm-555-upright
                                     </li>
                                 </ul>
                                 <ul class="tm-contact-social">
-                                    <li><a href="https://www.linkedin.com/in/darryn-wong/" class="tm-social-link"><i class="fab fa-linkedin"></i></a></li>
-                                    <li><a href="https://github.com/Darryn-Wong/" class="tm-social-link"><i class="fab fa-github"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/in/darryn-wong/" class="tm-social-link"><i
+                                                class="fab fa-linkedin"></i></a></li>
+                                    <li><a href="https://github.com/Darryn-Wong/" class="tm-social-link"><i
+                                                class="fab fa-github"></i></a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                </div>  
-            </div> <!-- .tm-main -->                      
+                </div>
+            </div> <!-- .tm-main -->
         </div> <!-- .row -->
     </div> <!-- .container-fluid -->
-    <script src="js/jquery-3.4.1.min.js"></script>          <!-- https://jquery.com/ -->
-    <script src="js/jquery.singlePageNav.min.js"></script>  <!-- https://github.com/ChrisWojcik/single-page-nav -->
-    <script src="js/parallax/parallax.min.js"></script>     <!-- https://pixelcog.github.io/parallax.js/ -->
-    <script src="js/imagesloaded.pkgd.min.js"></script>     <!-- https://imagesloaded.desandro.com/ -->
-    <script src="js/isotope.pkgd.min.js"></script>          <!-- https://isotope.metafizzy.co/ -->
+    <script src="js/jquery-3.4.1.min.js"></script> <!-- https://jquery.com/ -->
+    <script src="js/jquery.singlePageNav.min.js"></script> <!-- https://github.com/ChrisWojcik/single-page-nav -->
+    <script src="js/parallax/parallax.min.js"></script> <!-- https://pixelcog.github.io/parallax.js/ -->
+    <script src="js/imagesloaded.pkgd.min.js"></script> <!-- https://imagesloaded.desandro.com/ -->
+    <script src="js/isotope.pkgd.min.js"></script> <!-- https://isotope.metafizzy.co/ -->
     <script src="js/jquery.magnific-popup.min.js"></script> <!-- https://dimsemenov.com/plugins/magnific-popup/ -->
-    <script src="slick/slick.min.js"></script>              <!-- https://kenwheeler.github.io/slick/ -->
+    <script src="slick/slick.min.js"></script> <!-- https://kenwheeler.github.io/slick/ -->
+    <script src="js/bootstrap.js"></script>
     <script src="js/templatemo-script.js"></script>
 </body>
-</html> 
+
+</html>
