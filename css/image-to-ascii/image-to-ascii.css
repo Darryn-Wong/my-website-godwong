@@ -6,6 +6,15 @@ header h1 {
     text-align: center;
 }
 
+/* .form-check-input {
+    position: relative !important;
+    margin-left: 0 !important;
+}
+
+.form-check {
+    padding-left: 0 !important;
+} */
+
 .noselect {
     -webkit-touch-callout: none;
     /* iOS Safari */

@@ -21,10 +21,30 @@
 <body>
     <header>
         <h1>Ascii Art Converter</h1>
-        <p>Upload a picture and turn it into pure ASCII masterpiece!</p>
-        <p>Higher resolution results in more detailed picture.</p>
     </header>
-    <div class="my-4">
+    <strong>Gray ramps</strong> - offers more variety of shadow ramps
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="grayRamps" id="scale10" value=".:-=+*#%@">
+        <label class="form-check-label" for="scale10">
+            ".:-=+*#%@"
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="grayRamps" id="scale70"
+            value="$@B%8&#x26;WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/|()1{}[]?-_+~&#x3C;&#x3E;i!lI;:,&#x22; ^&#x60;\&#x27;. "
+            checked>
+        <label class=" form-check-label" for="scale70">
+            "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/|()1{}[]?-_+~&#x3C;>i!lI;:,"^`\'. "
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="grayRamps" id="scale96"
+            value="@MBHENR#KWXDFPQASUZbdehx*8Gm&#x26;04LOVYkpq5Tagns69owz$CIu23Jcfry%1v7l+it[] {}?j|()=~!-/&#x3C;&#x3E;\&#x22; ^_&#x27;;,:&#x60;. ">
+        <label class=" form-check-label" for="customScale">
+            "@MBHENR#KWXDFPQASUZbdehx*8Gm&04LOVYkpq5Tagns69owz$CIu23Jcfry%1v7l+it[] {}?j|()=~!-/&#x3C;>\"^_';,:`. "
+        </label>
+    </div>
+    <!-- <div class="my-4">
         <form class="float-left range-field">
             Width scale
             <input id="width" class="border-0" type="range" min="80" max="1000" value="80" />
@@ -38,20 +58,57 @@
             <input id="height" class="border-0" type="range" min="80" max="1000" value="80" />
         </form>
         <span class="font-weight-bold text-primary ml-2 mt-1 heightValueSpan"></span>
+    </div> -->
+    <div class="form-check form-switch my-4">
+        <input class="form-check-input" type="checkbox" value="" id="colorInverse">
+        <label class="form-check-label" for="colorInverse">
+            <strong>Color inverse </strong> - reverse black and white (enabling this with 10 levels of ramp has
+            surprising results)
+        </label>
     </div>
-
+    <div class="my-4">
+        <strong>Colored image</strong> - adds color back to the ASCII image.
+        <br>
+        <span><b style='color:rgb(255,0,0)'>BUG</b> - if the input image is too large, it may result in a buggy
+            output.</span><br>
+        <span><b style='color:rgb(255,0,0)'>Warning</b> - due
+            to excess CSS styling and DOM elements, using this feature on large images will cause lag and crash.
+            It is recommended to minimize the scale.</span>
+        <div class="form-check form-switch ">
+            <input class="form-check-input" type="checkbox" value="" id="coloredImageHighlight">
+            <label class="form-check-label" for="coloredImageHighlight">
+                <strong>Colored image background</strong> - adds orginal RGB back into the image background.
+            </label>
+        </div>
+        <div class="form-check form-switch ">
+            <input class="form-check-input" type="checkbox" value="" id="coloredImageFont">
+            <label class="form-check-label" for="coloredImageFont">
+                <strong>Colored image font</strong> - adds orginal RGB back into the image font.
+            </label>
+        </div>
+    </div>
+    <div class="my-4">
+        <strong>Image Scale Clamp</strong> - Higher clamp results in more detailed picture.
+        <div>
+            <input type="range" class="custom-range w-25" min="80" max="4000" value="80" id="scale">
+            <span class="font-weight-bold text-primary ml-2 mt-1 valueSpan"></span>
+        </div>
+    </div>
     <!-- <input type="file" name="picture" /> -->
     <div class="custom-file w-50 my-4 noselect">
         <input type="file" class="custom-file-input" id="validatedCustomFile">
         <label class="custom-file-label overflow-hidden noselect" for="validatedCustomFile" id="fileName">Choose
             file...</label>
     </div>
-    <br>
+    <p>Thanks you Jonathan Petitcolas for providing the tutorial and source code for converting an image to gray
+        image
+        to ASCII
+        image.
+    </p>
+    <p>Check out his Github repository <a href="https://github.com/jpetitcolas">https://github.com/jpetitcolas</a>.</p>
     <button type="button" class="btn btn-primary" id="refresh" disabled>Refresh</button>
-
     <canvas id="preview" style="display: none;"></canvas>
     <pre id="ascii"></pre>
-
     <script src="../js/jquery-3.4.1.min.js"></script>
     <!-- <script src="../js/popper.js"></script> -->
     <script src="../js/bootstrap.min.js"></script>
